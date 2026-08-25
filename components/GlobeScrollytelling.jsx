@@ -90,9 +90,10 @@ export default function GlobeScrollytelling() {
           alpha: true,
           antialias: true,
           powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: false,
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
         // 3. Monochromatic Lighting Setup
         const ambientLight = new THREE.AmbientLight(0xffffff, 1.1);
