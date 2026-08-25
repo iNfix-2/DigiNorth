@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('https://cdn.prod.website-files.com/6756df8f05088bc3e51c64c0/689f2c8f1f77df847cb7a84d_OpenSauceSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('https://cdn.prod.website-files.com/6756df8f05088bc3e51c64c0/689f2c8f5b30752613faba42_OpenSauceSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('https://cdn.prod.website-files.com/6756df8f05088bc3e51c64c0/689f2c8f1c4d089f990e6895_OpenSauceSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('https://cdn.prod.website-files.com/6756df8f05088bc3e51c64c0/689f2c8f3b75d53e11827d90_OpenSauceSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-open-sauce: 'Open Sauce One', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --theme-accent: #ffffff;
+  --theme-dark-bg: #000000;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #000000;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: var(--font-open-sauce);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Monochromatic Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Typography Helpers */
+.font-space, .font-heading {
+  font-family: var(--font-open-sauce);
+}
+
+.heading-hero {
+  font-family: var(--font-open-sauce);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+/* Clean Button Styles */
+.button-enchanced {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0.5rem;
+  color: #000000;
+  font-family: var(--font-open-sauce);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.button-enchanced:hover {
+  background: #e4e4e7;
+  border-color: #e4e4e7;
+  color: #000000;
+}
+
+.button-enchanced.is-primary {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.button-enchanced.is-primary:hover {
+  background: #f4f4f5;
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+}
+
+.button-enchanced.is-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.button-enchanced.is-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  transition: all 0.25s ease-out;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Timeline Beam Loading & Pure White/Silver Glow Animations */
+@keyframes beamTravel {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes trackPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 24px rgba(255, 255, 255, 0.6));
+    opacity: 1;
+  }
+}
+
+@keyframes beaconRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.timeline-track-glow {
+  animation: trackPulse 2.5s ease-in-out infinite;
+}
+
+.timeline-beam-head {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 6px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #ffffff 40%, rgba(255,255,255,0.7) 80%, transparent 100%);
+  filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 18px rgba(255,255,255,0.5));
+  animation: beamTravel 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.beacon-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  animation: beaconRipple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Mobile Slideshow / Marquee Animation */
+@keyframes marqueeMobile {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-mobile {
+  display: flex;
+  width: max-content;
+  animation: marqueeMobile 20s linear infinite;
+}
+
+.animate-marquee-mobile:active,
+.animate-marquee-mobile:hover {
+  animation-play-state: paused;
+}
