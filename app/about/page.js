@@ -3,7 +3,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, Info, Building2, Server, Linkedin, Twitter, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Info, Linkedin, Twitter, ShieldCheck } from "lucide-react";
 
 export default function AboutPage() {
   const team = [
@@ -172,7 +173,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Powering Partners */}
+      {/* Powering Partners with Real Official Logos */}
       <section className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
@@ -184,24 +185,48 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex items-center gap-6">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-[#38bdf8] shrink-0">
-              <Building2 className="w-8 h-8" />
+          {/* Digi02 Tech Systems */}
+          <div className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex items-center gap-6 transition-all hover:border-white/30">
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 w-20 h-20">
+              <Image
+                src="/images/partners/digi02.png"
+                alt="Digi02 Tech Systems Logo"
+                width={80}
+                height={40}
+                className="w-full h-auto max-h-12 object-contain"
+              />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white uppercase mb-1">Digi02 Tech Systems</h3>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-xl font-bold text-white uppercase">Digi02 Tech Systems</h3>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
+                  Powering Partner
+                </span>
+              </div>
               <p className="text-xs text-slate-400 font-light leading-relaxed">
                 Supports technology, software, product development, engineering guidance, and the digital systems behind the ecosystem.
               </p>
             </div>
           </div>
 
-          <div className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex items-center gap-6">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-[#38bdf8] shrink-0">
-              <Server className="w-8 h-8" />
+          {/* Nethawk Solutions Limited */}
+          <div className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex items-center gap-6 transition-all hover:border-white/30">
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 w-20 h-20">
+              <Image
+                src="/images/partners/nethawk.png"
+                alt="Nethawk Solutions Limited Logo"
+                width={80}
+                height={80}
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white uppercase mb-1">Nethawk Solutions Limited</h3>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-xl font-bold text-white uppercase">Nethawk Solutions</h3>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
+                  Powering Partner
+                </span>
+              </div>
               <p className="text-xs text-slate-400 font-light leading-relaxed">
                 Contributes industry perspective, systems thinking, mentorship, real-world challenges, and strategic support for practical innovation.
               </p>
