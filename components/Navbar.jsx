@@ -78,26 +78,26 @@ export default function Navbar({ onOpenRegister, variant = "default" }) {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between gap-4">
           
           {/* Left: Brand Logo Lockup */}
-          <div className="flex items-center">
+          <div className="flex items-center shrink-0">
             <Link href="/" className="flex items-center group transition">
               <DigiNorthLogo className="h-8 sm:h-9 w-auto" />
             </Link>
           </div>
 
           {/* Center: Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-7 shrink-0">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-xs font-medium uppercase tracking-wider transition-colors duration-200 ${
+                  className={`text-[11px] 2xl:text-xs font-semibold uppercase tracking-wider transition-colors duration-200 whitespace-nowrap relative py-1 ${
                     isActive
-                      ? "text-white font-bold border-b border-[#38bdf8] pb-0.5"
+                      ? "text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#38bdf8] after:rounded-full"
                       : "text-slate-300 hover:text-white"
                   }`}
                 >
@@ -107,13 +107,13 @@ export default function Navbar({ onOpenRegister, variant = "default" }) {
             })}
           </nav>
 
-          {/* Right: Action CTA Button */}
-          <div className="hidden sm:flex items-center">
+          {/* Right: Action CTA Button (Guaranteed single-line whitespace-nowrap & fixed sleek height) */}
+          <div className="hidden sm:flex items-center shrink-0">
             {isHackathonRoute ? (
               <button
                 onClick={onOpenRegister}
                 onMouseEnter={registerBtn.startScramble}
-                className="button-enchanced is-primary text-xs !py-2.5 !px-6 font-bold cursor-pointer shadow-xl"
+                className="button-enchanced is-primary text-xs !py-2.5 !px-5 font-bold cursor-pointer shadow-xl whitespace-nowrap shrink-0 leading-none inline-flex items-center justify-center"
               >
                 <span>{registerBtn.displayText}</span>
               </button>
@@ -121,27 +121,27 @@ export default function Navbar({ onOpenRegister, variant = "default" }) {
               <Link
                 href="/join"
                 onMouseEnter={joinBtn.startScramble}
-                className="button-enchanced is-primary text-xs !py-2.5 !px-6 font-bold cursor-pointer shadow-xl flex items-center gap-1.5"
+                className="button-enchanced is-primary text-xs !py-2.5 !px-5 font-bold cursor-pointer shadow-xl inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 leading-none"
               >
                 <span>{joinBtn.displayText}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
               </Link>
             )}
           </div>
 
-          {/* Mobile Menu Toggle & Action Button */}
-          <div className="flex lg:hidden items-center gap-3">
+          {/* Mobile & Mid-Screen Menu Toggle & Action Button */}
+          <div className="flex xl:hidden items-center gap-3 shrink-0">
             {isHackathonRoute ? (
               <button
                 onClick={onOpenRegister}
-                className="button-enchanced is-primary text-xs !py-2 !px-3.5 sm:hidden font-bold cursor-pointer"
+                className="button-enchanced is-primary text-xs !py-2 !px-3.5 sm:hidden font-bold cursor-pointer whitespace-nowrap"
               >
                 Register
               </button>
             ) : (
               <Link
                 href="/join"
-                className="button-enchanced is-primary text-xs !py-2 !px-3.5 sm:hidden font-bold cursor-pointer"
+                className="button-enchanced is-primary text-xs !py-2 !px-3.5 sm:hidden font-bold cursor-pointer whitespace-nowrap"
               >
                 Join
               </Link>
@@ -161,7 +161,7 @@ export default function Navbar({ onOpenRegister, variant = "default" }) {
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-b border-white/10 bg-black/95 px-6 pt-4 pb-8 backdrop-blur-2xl shadow-2xl animate-in slide-in-from-top duration-200">
+        <div className="xl:hidden border-b border-white/10 bg-black/95 px-6 pt-4 pb-8 backdrop-blur-2xl shadow-2xl animate-in slide-in-from-top duration-200">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
