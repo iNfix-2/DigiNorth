@@ -11,7 +11,7 @@ export default function LeadershipSection() {
       role: "Ecosystem Lead",
       domain: "Ecosystem Strategy",
       image: "/images/leadership/john.webp",
-      objectPos: "center 15%",
+      objectPos: "center 10%",
       desc: "Coordinates DigiNorth's connected ecosystem pathways, partnerships, and strategic expansion across Northern Nigeria.",
     },
     {
@@ -19,7 +19,7 @@ export default function LeadershipSection() {
       role: "Technical Lead",
       domain: "Technology & Systems",
       image: "/images/leadership/covenant.svg",
-      objectPos: "center 18%",
+      objectPos: "center 15%",
       desc: "Supports the technical direction, architecture, and standards of DigiNorth programmes, open-source builds, and products.",
     },
     {
@@ -27,7 +27,7 @@ export default function LeadershipSection() {
       role: "Academy Lead",
       domain: "Learning & Talent",
       image: "/images/leadership/kosi.webp",
-      objectPos: "center 10%",
+      objectPos: "center top",
       desc: "Guides practical learning pathways, curriculum design, and hands-on skill development for emerging tech talent.",
     },
     {
@@ -35,7 +35,7 @@ export default function LeadershipSection() {
       role: "Community Lead",
       domain: "Community Building",
       image: "/images/leadership/abraham.jpg",
-      objectPos: "center 20%",
+      objectPos: "center 15%",
       desc: "Stewards community connection, engagement, event curation, and builder participation across the ecosystem.",
     },
     {
@@ -43,7 +43,7 @@ export default function LeadershipSection() {
       role: "AI/Data Lead",
       domain: "AI & Data Science",
       image: "/images/leadership/ini.webp",
-      objectPos: "center 10%",
+      objectPos: "center 20%",
       desc: "Guides AI research, machine learning engineering, and data initiative activity within the DigiNorth ecosystem.",
     },
   ];
@@ -54,31 +54,31 @@ export default function LeadershipSection() {
       name: "Doyin Akerele",
       role: "Founder · Nethawk Solutions",
       image: "/images/leadership/doyin.webp",
-      objectPos: "center 15%",
+      objectPos: "center 20%",
     },
     {
       tag: "02 / LEADERSHIP",
       name: "Olamide",
       role: "Managing Director · Nethawk Solutions",
       image: "/images/leadership/olamide.webp",
-      objectPos: "center 12%",
+      objectPos: "center 18%",
     },
     {
       tag: "03 / LEADERSHIP",
       name: "Ovidi",
       role: "Chief Executive Officer · Digi02 Tech Systems",
       image: "/images/leadership/ovidi.webp",
-      objectPos: "center 12%",
+      objectPos: "center 18%",
     },
   ];
 
   return (
-    <section id="leadership" className="py-28 bg-black relative border-t border-white/10 font-space">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="leadership" className="py-24 sm:py-28 bg-black relative border-t border-white/10 font-space">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Executive Direction (Shaping DigiNorth's Direction) */}
-        <div className="mb-28">
-          <div className="max-w-3xl mb-12">
+        <div className="mb-24 sm:mb-28">
+          <div className="max-w-3xl mb-10 sm:mb-12">
             <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
               PEOPLE // LEADERSHIP
             </span>
@@ -94,20 +94,21 @@ export default function LeadershipSection() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            {/* Left Featured Founder Card */}
-            <div className="lg:col-span-7 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[420px] lg:min-h-[480px] flex flex-col justify-end">
+            {/* Left Featured Founder Card (Responsive aspect-ratio) */}
+            <div className="lg:col-span-7 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[480px] flex flex-col justify-end">
               <div className="absolute inset-0 z-0">
                 <Image
                   src={executiveDirection[0].image}
                   alt={executiveDirection[0].name}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                   style={{ objectPosition: executiveDirection[0].objectPos }}
                   className="object-cover filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
               </div>
-              <div className="relative z-10 p-8 sm:p-10">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
+              <div className="relative z-10 p-6 sm:p-10">
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
                   {executiveDirection[0].tag}
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
@@ -119,31 +120,32 @@ export default function LeadershipSection() {
               </div>
             </div>
 
-            {/* Right Stacked Leadership Cards */}
+            {/* Right Stacked Leadership Cards (Responsive aspect-ratio) */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               {executiveDirection.slice(1).map((exec, idx) => (
                 <div
                   key={idx}
-                  className="flex-1 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[200px] sm:min-h-[225px] flex flex-col justify-end"
+                  className="bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:flex-1 lg:min-h-[225px] flex flex-col justify-end"
                 >
                   <div className="absolute inset-0 z-0">
                     <Image
                       src={exec.image}
                       alt={exec.name}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
                       style={{ objectPosition: exec.objectPos }}
                       className="object-cover filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   </div>
-                  <div className="relative z-10 p-6 sm:p-8">
+                  <div className="relative z-10 p-5 sm:p-8">
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
                       {exec.tag}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                    <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight">
                       {exec.name}
                     </h3>
-                    <p className="text-xs font-mono text-slate-300 uppercase mt-0.5">
+                    <p className="text-[11px] sm:text-xs font-mono text-slate-300 uppercase mt-0.5">
                       {exec.role}
                     </p>
                   </div>
@@ -154,28 +156,28 @@ export default function LeadershipSection() {
         </div>
 
         {/* Operational Leadership Team (People Shaping The Pathways) */}
-        <div className="border-t border-white/10 pt-24">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="border-t border-white/10 pt-20 sm:pt-24">
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] text-xs font-mono uppercase tracking-widest mb-4">
               <ShieldCheck className="w-3.5 h-3.5 text-[#38bdf8]" /> Leadership Team
             </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6 uppercase">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 sm:mb-6 uppercase">
               People Shaping <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_30px_rgba(0,82,255,0.35)]">The Pathways.</span>
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light px-2">
               DigiNorth is built by people coordinating community, learning, technology, AI & data, and ecosystem development.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {team.map((member, idx) => (
               <div
                 key={idx}
                 className="bg-black border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/30 shadow-xl flex flex-col justify-between group"
               >
                 <div>
-                  {/* Photo Portrait Frame - Generous height with clean headroom framing */}
-                  <div className="relative w-full h-80 sm:h-96 overflow-hidden bg-[#0a0a0a] border-b border-white/10">
+                  {/* Photo Portrait Frame - Standardized Square Aspect Ratio (1:1) perfectly matching source photo proportions */}
+                  <div className="relative w-full aspect-square overflow-hidden bg-[#0d0d0d] border-b border-white/10">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -187,7 +189,7 @@ export default function LeadershipSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  {/* Clean Content Area (No badges covering faces) */}
+                  {/* Clean Content Area */}
                   <div className="p-6 sm:p-8">
                     <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#38bdf8] font-semibold mb-2">
                       {member.domain}
