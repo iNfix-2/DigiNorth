@@ -12,31 +12,60 @@ export default function AboutPage() {
       name: "John Okojere",
       role: "Ecosystem Lead",
       domain: "Ecosystem Strategy",
+      image: "/images/leadership/john.webp",
       desc: "Coordinates DigiNorth's connected ecosystem pathways, partnerships, and strategic expansion across Northern Nigeria.",
     },
     {
       name: "Covenant Iregbeyen",
       role: "Technical Lead",
       domain: "Technology & Systems",
+      image: "/images/leadership/covenant-suit.webp",
       desc: "Supports the technical direction, architecture, and standards of DigiNorth programmes, open-source builds, and products.",
     },
     {
       name: "Kosisochukwu Ugwubma",
       role: "Academy Lead",
       domain: "Learning & Talent",
+      image: "/images/leadership/kosi.webp",
       desc: "Guides practical learning pathways, curriculum design, and hands-on skill development for emerging tech talent.",
     },
     {
       name: "Abraham Salifu",
       role: "Community Lead",
       domain: "Community Building",
+      image: "/images/leadership/abraham.jpg",
       desc: "Stewards community connection, engagement, event curation, and builder participation across the ecosystem.",
     },
     {
       name: "Ini Esiset",
       role: "AI/Data Lead",
       domain: "AI & Data Science",
+      image: "/images/leadership/ini.webp",
       desc: "Guides AI research, machine learning engineering, and data initiative activity within the DigiNorth ecosystem.",
+    },
+  ];
+
+  const executiveDirection = [
+    {
+      tag: "01 / FOUNDER",
+      name: "Doyin Akerele",
+      role: "Founder · Nethawk Solutions",
+      image: "/images/leadership/doyin.webp",
+      featured: true,
+    },
+    {
+      tag: "02 / LEADERSHIP",
+      name: "Olamide",
+      role: "Managing Director · Nethawk Solutions",
+      image: "/images/leadership/olamide.webp",
+      featured: false,
+    },
+    {
+      tag: "03 / LEADERSHIP",
+      name: "Ovidi",
+      role: "Chief Executive Officer · Digi02 Tech Systems",
+      image: "/images/leadership/ovidi.webp",
+      featured: false,
     },
   ];
 
@@ -123,7 +152,84 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* Executive Direction (Shaping DigiNorth's Direction) */}
+      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
+              PEOPLE // LEADERSHIP
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight mb-4">
+              The people helping shape <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_30px_rgba(0,82,255,0.35)]">
+                DigiNorth’s direction.
+              </span>
+            </h2>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+              DigiNorth is strengthened by leaders building technology capability, partnerships, and long-term institutional direction across the ecosystem.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left Featured Founder Card */}
+            <div className="lg:col-span-7 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[380px] flex flex-col justify-end">
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={executiveDirection[0].image}
+                  alt={executiveDirection[0].name}
+                  fill
+                  className="object-cover object-top filter contrast-105 brightness-90 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              </div>
+              <div className="relative z-10 p-8 sm:p-10">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
+                  {executiveDirection[0].tag}
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+                  {executiveDirection[0].name}
+                </h3>
+                <p className="text-xs sm:text-sm font-mono text-slate-300 uppercase mt-1">
+                  {executiveDirection[0].role}
+                </p>
+              </div>
+            </div>
+
+            {/* Right Stacked Leadership Cards */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              {executiveDirection.slice(1).map((exec, idx) => (
+                <div
+                  key={idx}
+                  className="flex-1 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[180px] flex flex-col justify-end"
+                >
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={exec.image}
+                      alt={exec.name}
+                      fill
+                      className="object-cover object-center filter contrast-105 brightness-90 group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  </div>
+                  <div className="relative z-10 p-6 sm:p-8">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
+                      {exec.tag}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                      {exec.name}
+                    </h3>
+                    <p className="text-xs font-mono text-slate-300 uppercase mt-0.5">
+                      {exec.role}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Pathways Leadership Team */}
       <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -140,29 +246,58 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, idx) => (
-              <div key={idx} className="bg-black border border-white/10 rounded-3xl p-8 shadow-xl flex flex-col justify-between hover:border-white/30 transition">
+              <div
+                key={idx}
+                className="bg-black border border-white/10 rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-white/30 transition group"
+              >
                 <div>
-                  <span className="text-[10px] font-mono uppercase px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 block w-fit mb-6">
-                    {member.domain}
-                  </span>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl shadow-lg bg-white/5 border border-white/10 text-white">
-                      {member.name.split(" ").map(n => n[0]).join("")}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white uppercase">{member.name}</h3>
-                      <p className="text-xs font-mono text-slate-400 uppercase mt-0.5">{member.role}</p>
-                    </div>
+                  {/* Photo Portrait Frame */}
+                  <div className="relative w-full h-72 overflow-hidden bg-white/5">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 filter contrast-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                    
+                    <span className="absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-black/75 border border-white/15 text-slate-200 backdrop-blur-md">
+                      {member.domain}
+                    </span>
                   </div>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">{member.desc}</p>
+
+                  <div className="p-6 sm:p-8 pt-4">
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-slate-200 transition-colors">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs font-mono text-[#38bdf8] font-semibold uppercase mt-0.5 mb-4">
+                      {member.role}
+                    </p>
+
+                    <p className="text-slate-300 text-sm leading-relaxed font-light">
+                      {member.desc}
+                    </p>
+                  </div>
                 </div>
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+
+                {/* Footer */}
+                <div className="px-6 sm:px-8 pb-6 pt-4 border-t border-white/10 flex items-center justify-between">
                   <span className="text-[11px] font-mono text-slate-500 uppercase">Kaduna Node</span>
                   <div className="flex items-center gap-2">
-                    <a href="https://linkedin.com/company/diginorth" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white">
+                    <a
+                      href="https://linkedin.com/company/diginorth"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    >
                       <Linkedin className="w-3.5 h-3.5" />
                     </a>
-                    <a href="https://x.com/NorthDigi59258" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white">
+                    <a
+                      href="https://x.com/NorthDigi59258"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    >
                       <Twitter className="w-3.5 h-3.5" />
                     </a>
                   </div>
