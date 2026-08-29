@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ShieldCheck, Linkedin, Twitter, Sparkles } from "lucide-react";
+import { ShieldCheck, Linkedin, Twitter } from "lucide-react";
 
 export default function LeadershipSection() {
   const team = [
@@ -11,13 +11,15 @@ export default function LeadershipSection() {
       role: "Ecosystem Lead",
       domain: "Ecosystem Strategy",
       image: "/images/leadership/john.webp",
+      objectPos: "center 15%",
       desc: "Coordinates DigiNorth's connected ecosystem pathways, partnerships, and strategic expansion across Northern Nigeria.",
     },
     {
       name: "Covenant Iregbeyen",
       role: "Technical Lead",
       domain: "Technology & Systems",
-      image: "/images/leadership/covenant-suit.webp",
+      image: "/images/leadership/covenant.svg",
+      objectPos: "center 18%",
       desc: "Supports the technical direction, architecture, and standards of DigiNorth programmes, open-source builds, and products.",
     },
     {
@@ -25,6 +27,7 @@ export default function LeadershipSection() {
       role: "Academy Lead",
       domain: "Learning & Talent",
       image: "/images/leadership/kosi.webp",
+      objectPos: "center 10%",
       desc: "Guides practical learning pathways, curriculum design, and hands-on skill development for emerging tech talent.",
     },
     {
@@ -32,6 +35,7 @@ export default function LeadershipSection() {
       role: "Community Lead",
       domain: "Community Building",
       image: "/images/leadership/abraham.jpg",
+      objectPos: "center 20%",
       desc: "Stewards community connection, engagement, event curation, and builder participation across the ecosystem.",
     },
     {
@@ -39,6 +43,7 @@ export default function LeadershipSection() {
       role: "AI/Data Lead",
       domain: "AI & Data Science",
       image: "/images/leadership/ini.webp",
+      objectPos: "center 10%",
       desc: "Guides AI research, machine learning engineering, and data initiative activity within the DigiNorth ecosystem.",
     },
   ];
@@ -49,26 +54,26 @@ export default function LeadershipSection() {
       name: "Doyin Akerele",
       role: "Founder · Nethawk Solutions",
       image: "/images/leadership/doyin.webp",
-      featured: true,
+      objectPos: "center 15%",
     },
     {
       tag: "02 / LEADERSHIP",
       name: "Olamide",
       role: "Managing Director · Nethawk Solutions",
       image: "/images/leadership/olamide.webp",
-      featured: false,
+      objectPos: "center 12%",
     },
     {
       tag: "03 / LEADERSHIP",
       name: "Ovidi",
       role: "Chief Executive Officer · Digi02 Tech Systems",
       image: "/images/leadership/ovidi.webp",
-      featured: false,
+      objectPos: "center 12%",
     },
   ];
 
   return (
-    <section id="leadership" className="py-28 bg-black relative border-t border-white/10">
+    <section id="leadership" className="py-28 bg-black relative border-t border-white/10 font-space">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Executive Direction (Shaping DigiNorth's Direction) */}
@@ -88,15 +93,16 @@ export default function LeadershipSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* Left Featured Founder Card */}
-            <div className="lg:col-span-7 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[380px] flex flex-col justify-end">
+            <div className="lg:col-span-7 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[420px] lg:min-h-[480px] flex flex-col justify-end">
               <div className="absolute inset-0 z-0">
                 <Image
                   src={executiveDirection[0].image}
                   alt={executiveDirection[0].name}
                   fill
-                  className="object-cover object-top filter contrast-105 brightness-90 group-hover:scale-105 transition-transform duration-700"
+                  style={{ objectPosition: executiveDirection[0].objectPos }}
+                  className="object-cover filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
               </div>
@@ -118,16 +124,17 @@ export default function LeadershipSection() {
               {executiveDirection.slice(1).map((exec, idx) => (
                 <div
                   key={idx}
-                  className="flex-1 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[180px] flex flex-col justify-end"
+                  className="flex-1 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition min-h-[200px] sm:min-h-[225px] flex flex-col justify-end"
                 >
                   <div className="absolute inset-0 z-0">
                     <Image
                       src={exec.image}
                       alt={exec.name}
                       fill
-                      className="object-cover object-center filter contrast-105 brightness-90 group-hover:scale-105 transition-transform duration-700"
+                      style={{ objectPosition: exec.objectPos }}
+                      className="object-cover filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                   </div>
                   <div className="relative z-10 p-6 sm:p-8">
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
@@ -167,26 +174,28 @@ export default function LeadershipSection() {
                 className="bg-black border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/30 shadow-xl flex flex-col justify-between group"
               >
                 <div>
-                  {/* Photo Portrait Frame */}
-                  <div className="relative w-full h-72 overflow-hidden bg-white/5">
+                  {/* Photo Portrait Frame - Generous height with clean headroom framing */}
+                  <div className="relative w-full h-80 sm:h-96 overflow-hidden bg-[#0a0a0a] border-b border-white/10">
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 filter contrast-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{ objectPosition: member.objectPos }}
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 filter contrast-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                    
-                    <span className="absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-black/75 border border-white/15 text-slate-200 backdrop-blur-md">
-                      {member.domain}
-                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  <div className="p-6 sm:p-8 pt-4">
+                  {/* Clean Content Area (No badges covering faces) */}
+                  <div className="p-6 sm:p-8">
+                    <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#38bdf8] font-semibold mb-2">
+                      {member.domain}
+                    </span>
                     <h3 className="text-xl font-bold text-white uppercase group-hover:text-slate-200 transition-colors">
                       {member.name}
                     </h3>
-                    <p className="text-xs font-mono text-[#38bdf8] font-semibold uppercase mt-0.5 mb-4">
+                    <p className="text-xs font-mono text-slate-400 font-medium uppercase mt-0.5 mb-4">
                       {member.role}
                     </p>
 
