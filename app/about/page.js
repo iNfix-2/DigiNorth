@@ -36,7 +36,7 @@ export default function AboutPage() {
       name: "Abraham Salifu",
       role: "Community Lead",
       domain: "Community Building",
-      image: "/images/leadership/abraham.jpg",
+      image: "/images/leadership/abraham.webp",
       objectPos: "center 15%",
       desc: "Stewards community connection, engagement, event curation, and builder participation across the ecosystem.",
     },
