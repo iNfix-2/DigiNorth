@@ -227,11 +227,77 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* Top 3 Operational Leads */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {team.map((member, idx) => (
+            {team.slice(0, 3).map((member, idx) => (
               <div
                 key={idx}
                 className="bg-black border border-white/10 rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-white/30 transition group"
+              >
+                <div>
+                  {/* Photo Portrait Frame - Standardized Square Aspect Ratio (1:1) */}
+                  <div className="relative w-full aspect-square overflow-hidden bg-[#0d0d0d] border-b border-white/10">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{ objectPosition: member.objectPos }}
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 filter contrast-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Content Area */}
+                  <div className="p-6 sm:p-8">
+                    <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#38bdf8] font-semibold mb-2">
+                      {member.domain}
+                    </span>
+                    <h3 className="text-xl font-bold text-white uppercase group-hover:text-slate-200 transition-colors">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs font-mono text-slate-400 font-medium uppercase mt-0.5 mb-4">
+                      {member.role}
+                    </p>
+
+                    <p className="text-slate-300 text-sm leading-relaxed font-light">
+                      {member.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="px-6 sm:px-8 pb-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-slate-500 uppercase">Kaduna Node</span>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://linkedin.com/company/diginorth"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href="https://x.com/NorthDigi59258"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    >
+                      <Twitter className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom 2 Operational Leads - Centered on Desktop Screen */}
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 sm:gap-8 mt-6 sm:mt-8">
+            {team.slice(3, 5).map((member, idx) => (
+              <div
+                key={idx}
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc((100%-4rem)/3)] max-w-md lg:max-w-none bg-black border border-white/10 rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-white/30 transition group"
               >
                 <div>
                   {/* Photo Portrait Frame - Standardized Square Aspect Ratio (1:1) */}
