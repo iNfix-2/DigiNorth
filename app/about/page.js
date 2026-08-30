@@ -29,7 +29,7 @@ export default function AboutPage() {
       role: "Academy Lead",
       domain: "Learning & Talent",
       image: "/images/leadership/kosi.webp",
-      objectPos: "center top",
+      objectPos: "center 15%",
       desc: "Guides practical learning pathways, curriculum design, and hands-on skill development for emerging tech talent.",
     },
     {
