@@ -1,14 +1,12 @@
 "use client";
 
 import React from "react";
-import { Users, GraduationCap, Cpu, ArrowRight, Zap } from "lucide-react";
-import { ScrambleText } from "./useScrambleText";
+import { Users, GraduationCap, Cpu, ArrowRight } from "lucide-react";
 
 export default function EcosystemEngines() {
   const engines = [
     {
       id: "community",
-      badge: "Engine 01 · Community",
       icon: Users,
       title: "Find Your People",
       tagline: "Discover & Connect",
@@ -25,7 +23,6 @@ export default function EcosystemEngines() {
     },
     {
       id: "academy",
-      badge: "Engine 02 · Academy",
       icon: GraduationCap,
       title: "Learn to Build",
       tagline: "Learn & Practise",
@@ -42,7 +39,6 @@ export default function EcosystemEngines() {
     },
     {
       id: "buildlab",
-      badge: "Engine 03 · BuildLab",
       icon: Cpu,
       title: "Build What Matters",
       tagline: "Build & Launch",
@@ -60,17 +56,14 @@ export default function EcosystemEngines() {
   ];
 
   return (
-    <section id="engines" className="relative py-28 sm:py-36 bg-black overflow-hidden scroll-mt-10 border-t border-white/10">
+    <section id="engines" className="relative py-24 sm:py-32 bg-black overflow-hidden scroll-mt-10 border-t border-white/10 font-space">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] text-xs font-mono uppercase tracking-widest mb-4">
-            <Zap className="w-3.5 h-3.5 text-[#38bdf8]" /> One Connected System
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6 uppercase">
+        {/* Section Heading (Clean layout without badge pill) */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 sm:mb-6 uppercase leading-tight">
             Three Engines. <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_30px_rgba(0,82,255,0.35)]">One Progression Pathway.</span>
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
             The parts are designed to strengthen one another rather than operate as isolated programmes.
             Talent moves seamlessly from curiosity to real useful technology.
           </p>
@@ -87,13 +80,10 @@ export default function EcosystemEngines() {
                 className="group relative bg-black rounded-3xl p-8 border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-white/30 shadow-2xl flex flex-col justify-between"
               >
                 <div>
-                  {/* Top Badge & Icon */}
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-white/5 text-slate-300 border border-white/10">
-                      {engine.badge}
-                    </span>
+                  {/* Top Icon (Clean without Engine 01 badge) */}
+                  <div className="flex items-center justify-end mb-6">
                     <div className="p-3 rounded-2xl bg-white/5 text-white border border-white/10 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-5 h-5" />
+                      <IconComponent className="w-5 h-5 text-slate-200" />
                     </div>
                   </div>
 
