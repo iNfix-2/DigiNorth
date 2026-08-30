@@ -304,50 +304,50 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Digi02 Tech Systems */}
-          <div className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex items-center gap-6 transition-all hover:border-white/30">
-            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 w-20 h-20">
+          <div className="bg-black border border-white/10 p-8 sm:p-10 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left transition-all hover:border-white/30 group">
+            <div className="flex items-center justify-center shrink-0 w-32 sm:w-40 h-24 sm:h-28">
               <Image
                 src="/images/partners/digi02.png"
                 alt="Digi02 Tech Systems Logo"
-                width={80}
-                height={40}
-                className="w-full h-auto max-h-12 object-contain"
+                width={180}
+                height={90}
+                className="w-full h-auto max-h-20 sm:max-h-24 object-contain filter brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-xl font-bold text-white uppercase">Digi02 Tech Systems</h3>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-white uppercase">Digi02 Tech Systems</h3>
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
                   Powering Partner
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
                 Supports technology, software, product development, engineering guidance, and the digital systems behind the ecosystem.
               </p>
             </div>
           </div>
 
           {/* Nethawk Solutions Limited */}
-          <div className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex items-center gap-6 transition-all hover:border-white/30">
-            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 w-20 h-20">
+          <div className="bg-black border border-white/10 p-8 sm:p-10 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left transition-all hover:border-white/30 group">
+            <div className="flex items-center justify-center shrink-0 w-32 sm:w-40 h-24 sm:h-28">
               <Image
                 src="/images/partners/nethawk.png"
                 alt="Nethawk Solutions Limited Logo"
-                width={80}
-                height={80}
-                className="w-full h-full object-contain"
+                width={180}
+                height={180}
+                className="w-full h-auto max-h-24 sm:max-h-28 object-contain filter brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-xl font-bold text-white uppercase">Nethawk Solutions</h3>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-white uppercase">Nethawk Solutions</h3>
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
                   Powering Partner
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
                 Contributes industry perspective, systems thinking, mentorship, real-world challenges, and strategic support for practical innovation.
               </p>
             </div>
