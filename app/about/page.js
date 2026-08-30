@@ -20,7 +20,7 @@ export default function AboutPage() {
       name: "Covenant Iregbeyen",
       role: "Technical Lead",
       domain: "Technology & Systems",
-      image: "/images/leadership/covenant.svg",
+      image: "/images/leadership/covenant_hd.webp",
       objectPos: "center 15%",
       desc: "Supports the technical direction, architecture, and standards of DigiNorth programmes, open-source builds, and products.",
     },
@@ -56,21 +56,21 @@ export default function AboutPage() {
       name: "Doyin Akerele",
       role: "Founder · Nethawk Solutions",
       image: "/images/leadership/doyin.webp",
-      objectPos: "center 20%",
+      objectPos: "center 30%",
     },
     {
       tag: "02 / LEADERSHIP",
       name: "Olamide",
       role: "Managing Director · Nethawk Solutions",
       image: "/images/leadership/olamide.webp",
-      objectPos: "center 18%",
+      objectPos: "center 30%",
     },
     {
       tag: "03 / LEADERSHIP",
       name: "Ovidi",
       role: "Chief Executive Officer · Digi02 Tech Systems",
       image: "/images/leadership/ovidi.webp",
-      objectPos: "center 18%",
+      objectPos: "center 32%",
     },
   ];
 
@@ -177,17 +177,18 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* Left Featured Founder Card */}
-            <div className="lg:col-span-7 bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[480px] flex flex-col justify-end">
+            <div className="lg:col-span-7 bg-[#071a38]/30 border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[520px] flex flex-col justify-end">
               <div className="absolute inset-0 z-0">
                 <Image
                   src={executiveDirection[0].image}
                   alt={executiveDirection[0].name}
                   fill
+                  priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   style={{ objectPosition: executiveDirection[0].objectPos }}
-                  className="object-cover filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover filter contrast-105 brightness-95 group-hover:scale-[1.02] transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent pointer-events-none" />
               </div>
               <div className="relative z-10 p-6 sm:p-10">
                 <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
@@ -207,18 +208,19 @@ export default function AboutPage() {
               {executiveDirection.slice(1).map((exec, idx) => (
                 <div
                   key={idx}
-                  className="bg-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:flex-1 lg:min-h-[225px] flex flex-col justify-end"
+                  className="bg-[#071a38]/30 border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-white/30 transition aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:flex-1 lg:min-h-[245px] flex flex-col justify-end"
                 >
                   <div className="absolute inset-0 z-0">
                     <Image
                       src={exec.image}
                       alt={exec.name}
                       fill
+                      priority
                       sizes="(max-width: 1024px) 100vw, 40vw"
                       style={{ objectPosition: exec.objectPos }}
-                      className="object-cover filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover filter contrast-105 brightness-95 group-hover:scale-[1.02] transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
                   </div>
                   <div className="relative z-10 p-5 sm:p-8">
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
