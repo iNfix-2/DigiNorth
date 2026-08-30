@@ -58,20 +58,21 @@ export default function EcosystemHero() {
         );
         camera.position.set(0, 0, 300);
 
-        const isMobile = window.innerWidth < 768;
+        // High-DPI Sharp WebGL Renderer with full antialiasing
         renderer = new THREE.WebGLRenderer({
           canvas: canvasRef.current,
           alpha: true,
-          antialias: !isMobile,
+          antialias: true,
           powerPreference: "high-performance",
           failIfMajorPerformanceCaveat: false,
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5));
+        // Force high resolution pixel ratio for ultra-crisp, razor-thin vector lines
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.5));
 
-        // Background Monochromatic Starfield Particles (Black & White)
+        // Pinpoint Starfield Particles
         const starsGeo = new THREE.BufferGeometry();
-        const starCount = isMobile ? 250 : 600;
+        const starCount = 500;
         const starPositions = new Float32Array(starCount * 3);
         for (let i = 0; i < starCount * 3; i += 3) {
           starPositions[i] = (Math.random() - 0.5) * 800;
@@ -81,76 +82,76 @@ export default function EcosystemHero() {
         starsGeo.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
         const starsMat = new THREE.PointsMaterial({
           color: 0xffffff,
-          size: 1.4,
+          size: 0.8,
           transparent: true,
-          opacity: 0.45,
+          opacity: 0.35,
         });
         const starField = new THREE.Points(starsGeo, starsMat);
         scene.add(starField);
 
-        // Monochromatic Pure White Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+        // Pure Crisp Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
         scene.add(ambientLight);
 
-        const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+        const keyLight = new THREE.DirectionalLight(0xffffff, 2.8);
         keyLight.position.set(-180, 140, 180);
         scene.add(keyLight);
 
-        const fillLight = new THREE.DirectionalLight(0xffffff, 1.6);
+        const fillLight = new THREE.DirectionalLight(0xffffff, 1.2);
         fillLight.position.set(200, -100, 140);
         scene.add(fillLight);
 
-        // ThreeGlobe setup (Black and White Monochromatic Theme)
+        // ThreeGlobe setup (Razor-sharp Black & White theme)
         const globe = new ThreeGlobe()
           .showAtmosphere(true)
           .atmosphereColor("#ffffff")
-          .atmosphereAltitude(0.20);
+          .atmosphereAltitude(0.09);
 
         const globeMat = globe.globeMaterial();
-        globeMat.color = new THREE.Color("#050505");
+        globeMat.color = new THREE.Color("#030303");
         globeMat.emissive = new THREE.Color("#000000");
-        globeMat.emissiveIntensity = 0.5;
-        globeMat.roughness = 0.85;
-        globeMat.metalness = 0.2;
+        globeMat.emissiveIntensity = 0.2;
+        globeMat.roughness = 0.9;
+        globeMat.metalness = 0.1;
 
         scene.add(globe);
 
-        // Monochromatic White Animated Arcs from Global Hubs to Kaduna
+        // Thin, razor-sharp white animated flight arcs
         const activeArcsData = GLOBAL_HUBS.map((hub) => ({
           startLat: hub.lat,
           startLng: hub.lng,
           endLat: KADUNA.lat,
           endLng: KADUNA.lng,
-          color: ["#ffffff", "rgba(255, 255, 255, 0.4)"],
+          color: ["#ffffff", "rgba(255, 255, 255, 0.35)"],
         }));
 
         globe
           .arcsData(activeArcsData)
           .arcColor((d) => d.color)
-          .arcAltitude(0.35)
-          .arcStroke(1.8)
-          .arcDashLength(0.45)
-          .arcDashGap(2.5)
-          .arcDashInitialGap((d, i) => i * 0.8)
-          .arcDashAnimateTime(2000);
+          .arcAltitude(0.28)
+          .arcStroke(0.45) // Hair-thin crisp lines
+          .arcDashLength(0.35)
+          .arcDashGap(2.0)
+          .arcDashInitialGap((d, i) => i * 0.7)
+          .arcDashAnimateTime(2200);
 
-        // Monochromatic Pulsing Rings on Kaduna & Global Hubs
+        // Thin, crisp pulsing radar rings
         const ringsData = [
           {
             lat: KADUNA.lat,
             lng: KADUNA.lng,
-            maxR: 12,
-            propagationSpeed: 3.2,
-            repeatPeriod: 900,
+            maxR: 9,
+            propagationSpeed: 2.5,
+            repeatPeriod: 1000,
             color: () => "#ffffff",
           },
           ...GLOBAL_HUBS.map((hub) => ({
             lat: hub.lat,
             lng: hub.lng,
-            maxR: 6,
-            propagationSpeed: 1.8,
-            repeatPeriod: 1400,
-            color: () => "rgba(255, 255, 255, 0.7)",
+            maxR: 4.5,
+            propagationSpeed: 1.5,
+            repeatPeriod: 1500,
+            color: () => "rgba(255, 255, 255, 0.6)",
           })),
         ];
 
@@ -161,7 +162,7 @@ export default function EcosystemHero() {
           .ringPropagationSpeed((d) => d.propagationSpeed)
           .ringRepeatPeriod((d) => d.repeatPeriod);
 
-        // Monochromatic Country Polygons (High contrast Black & White)
+        // Razor-thin, highly detailed GeoJSON Country Polygons
         fetch(LOCAL_GEOJSON_URL)
           .then((res) => res.json())
           .then((countries) => {
@@ -170,20 +171,20 @@ export default function EcosystemHero() {
               .polygonsData(countries.features)
               .polygonAltitude((d) => {
                 const name = d.properties?.ADMIN || d.properties?.NAME || d.properties?.name;
-                return name === "Nigeria" ? 0.08 : 0.015;
+                return name === "Nigeria" ? 0.008 : 0.003;
               })
               .polygonCapColor((d) => {
                 const name = d.properties?.ADMIN || d.properties?.NAME || d.properties?.name;
                 return name === "Nigeria"
-                  ? "rgba(255, 255, 255, 0.45)"
-                  : "rgba(255, 255, 255, 0.12)";
+                  ? "rgba(255, 255, 255, 0.22)"
+                  : "rgba(255, 255, 255, 0.04)";
               })
-              .polygonSideColor(() => "rgba(255, 255, 255, 0.2)")
+              .polygonSideColor(() => "rgba(0, 0, 0, 0)") // Zero extrusion blur
               .polygonStrokeColor((d) => {
                 const name = d.properties?.ADMIN || d.properties?.NAME || d.properties?.name;
                 return name === "Nigeria"
                   ? "#ffffff"
-                  : "rgba(255, 255, 255, 0.45)";
+                  : "rgba(255, 255, 255, 0.65)"; // Crisp high-definition white boundary lines
               });
           })
           .catch(() => {});
@@ -201,7 +202,7 @@ export default function EcosystemHero() {
           if (isSectionVisible && document.visibilityState !== "hidden") {
             rot += 0.0016;
             globe.rotation.y = rot;
-            starField.rotation.y += 0.0003;
+            starField.rotation.y += 0.0002;
             if (renderer && scene && camera) {
               renderer.render(scene, camera);
             }
@@ -223,11 +224,10 @@ export default function EcosystemHero() {
 
         handleResize = () => {
           if (!camera || !renderer) return;
-          const mobile = window.innerWidth < 768;
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.0 : 1.5));
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.5));
         };
         window.addEventListener("resize", handleResize);
 
@@ -250,10 +250,10 @@ export default function EcosystemHero() {
       id="about"
       className="relative min-h-screen w-full bg-black text-white flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 px-4 sm:px-6 lg:px-8 font-space"
     >
-      {/* 3D Black & White World Globe Animation Canvas */}
+      {/* 3D Black & White Razor-Sharp Globe Canvas */}
       <canvas
         ref={canvasRef}
-        className="pointer-events-none absolute inset-0 h-full w-full z-0 opacity-85"
+        className="pointer-events-none absolute inset-0 h-full w-full z-0 opacity-90 [image-rendering:-webkit-optimize-contrast]"
       />
 
       {/* Subtle depth vignette */}
@@ -261,7 +261,7 @@ export default function EcosystemHero() {
 
       {/* Main Hero Typography & Call-To-Action */}
       <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center max-w-4xl mx-auto py-12">
-        {/* Massive Headline with Blue and White Gradient */}
+        {/* Massive Headline */}
         <h1 className="heading-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95]">
           <span className="block text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
             <ScrambleText text="DIGINORTH" speed={30} />
