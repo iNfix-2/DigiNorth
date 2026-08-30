@@ -69,7 +69,7 @@ export default function EcosystemHero() {
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5));
 
-        // Background Starfield Particles
+        // Background Monochromatic Starfield Particles (Black & White)
         const starsGeo = new THREE.BufferGeometry();
         const starCount = isMobile ? 250 : 600;
         const starPositions = new Float32Array(starCount * 3);
@@ -80,61 +80,61 @@ export default function EcosystemHero() {
         }
         starsGeo.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
         const starsMat = new THREE.PointsMaterial({
-          color: 0x93c5fd,
-          size: 1.5,
+          color: 0xffffff,
+          size: 1.4,
           transparent: true,
-          opacity: 0.5,
+          opacity: 0.45,
         });
         const starField = new THREE.Points(starsGeo, starsMat);
         scene.add(starField);
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+        // Monochromatic Pure White Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
         scene.add(ambientLight);
 
-        const keyLight = new THREE.DirectionalLight(0x93c5fd, 3.5);
+        const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
         keyLight.position.set(-180, 140, 180);
         scene.add(keyLight);
 
-        const fillLight = new THREE.DirectionalLight(0x0052ff, 2.0);
+        const fillLight = new THREE.DirectionalLight(0xffffff, 1.6);
         fillLight.position.set(200, -100, 140);
         scene.add(fillLight);
 
-        // ThreeGlobe setup
+        // ThreeGlobe setup (Black and White Monochromatic Theme)
         const globe = new ThreeGlobe()
           .showAtmosphere(true)
-          .atmosphereColor("#0052FF")
-          .atmosphereAltitude(0.22);
+          .atmosphereColor("#ffffff")
+          .atmosphereAltitude(0.20);
 
         const globeMat = globe.globeMaterial();
-        globeMat.color = new THREE.Color("#050811");
-        globeMat.emissive = new THREE.Color("#020408");
-        globeMat.emissiveIntensity = 0.6;
-        globeMat.roughness = 0.75;
-        globeMat.metalness = 0.3;
+        globeMat.color = new THREE.Color("#050505");
+        globeMat.emissive = new THREE.Color("#000000");
+        globeMat.emissiveIntensity = 0.5;
+        globeMat.roughness = 0.85;
+        globeMat.metalness = 0.2;
 
         scene.add(globe);
 
-        // Animated Arcs from Global Hubs to Kaduna
+        // Monochromatic White Animated Arcs from Global Hubs to Kaduna
         const activeArcsData = GLOBAL_HUBS.map((hub) => ({
           startLat: hub.lat,
           startLng: hub.lng,
           endLat: KADUNA.lat,
           endLng: KADUNA.lng,
-          color: ["#38bdf8", "#0052FF"],
+          color: ["#ffffff", "rgba(255, 255, 255, 0.4)"],
         }));
 
         globe
           .arcsData(activeArcsData)
           .arcColor((d) => d.color)
           .arcAltitude(0.35)
-          .arcStroke(2.0)
+          .arcStroke(1.8)
           .arcDashLength(0.45)
           .arcDashGap(2.5)
           .arcDashInitialGap((d, i) => i * 0.8)
           .arcDashAnimateTime(2000);
 
-        // Pulsing Rings on Kaduna & Global Hubs
+        // Monochromatic Pulsing Rings on Kaduna & Global Hubs
         const ringsData = [
           {
             lat: KADUNA.lat,
@@ -142,7 +142,7 @@ export default function EcosystemHero() {
             maxR: 12,
             propagationSpeed: 3.2,
             repeatPeriod: 900,
-            color: () => "#38bdf8",
+            color: () => "#ffffff",
           },
           ...GLOBAL_HUBS.map((hub) => ({
             lat: hub.lat,
@@ -150,7 +150,7 @@ export default function EcosystemHero() {
             maxR: 6,
             propagationSpeed: 1.8,
             repeatPeriod: 1400,
-            color: () => "#93c5fd",
+            color: () => "rgba(255, 255, 255, 0.7)",
           })),
         ];
 
@@ -161,7 +161,7 @@ export default function EcosystemHero() {
           .ringPropagationSpeed((d) => d.propagationSpeed)
           .ringRepeatPeriod((d) => d.repeatPeriod);
 
-        // Country Polygons (High visibility with luminous borders)
+        // Monochromatic Country Polygons (High contrast Black & White)
         fetch(LOCAL_GEOJSON_URL)
           .then((res) => res.json())
           .then((countries) => {
@@ -175,15 +175,15 @@ export default function EcosystemHero() {
               .polygonCapColor((d) => {
                 const name = d.properties?.ADMIN || d.properties?.NAME || d.properties?.name;
                 return name === "Nigeria"
-                  ? "rgba(0, 82, 255, 0.45)"
-                  : "rgba(147, 197, 253, 0.12)";
+                  ? "rgba(255, 255, 255, 0.45)"
+                  : "rgba(255, 255, 255, 0.12)";
               })
-              .polygonSideColor(() => "rgba(0, 82, 255, 0.3)")
+              .polygonSideColor(() => "rgba(255, 255, 255, 0.2)")
               .polygonStrokeColor((d) => {
                 const name = d.properties?.ADMIN || d.properties?.NAME || d.properties?.name;
                 return name === "Nigeria"
                   ? "#ffffff"
-                  : "rgba(147, 197, 253, 0.45)";
+                  : "rgba(255, 255, 255, 0.45)";
               });
           })
           .catch(() => {});
@@ -250,7 +250,7 @@ export default function EcosystemHero() {
       id="about"
       className="relative min-h-screen w-full bg-black text-white flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 px-4 sm:px-6 lg:px-8 font-space"
     >
-      {/* 3D World Globe Animation Canvas */}
+      {/* 3D Black & White World Globe Animation Canvas */}
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 h-full w-full z-0 opacity-85"
@@ -259,7 +259,7 @@ export default function EcosystemHero() {
       {/* Subtle depth vignette */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black z-0" />
 
-      {/* Main Hero Typography & Call-To-Action (Centered without top badge) */}
+      {/* Main Hero Typography & Call-To-Action */}
       <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center max-w-4xl mx-auto py-12">
         {/* Massive Headline with Blue and White Gradient */}
         <h1 className="heading-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95]">
