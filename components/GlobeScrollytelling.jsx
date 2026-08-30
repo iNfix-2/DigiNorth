@@ -85,15 +85,16 @@ export default function GlobeScrollytelling() {
         );
         camera.position.set(0, 0, 320);
 
+        const isMobile = window.innerWidth < 768;
         renderer = new THREE.WebGLRenderer({
           canvas: canvasRef.current,
           alpha: true,
-          antialias: true,
+          antialias: !isMobile,
           powerPreference: "high-performance",
           failIfMajorPerformanceCaveat: false,
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5));
 
         // 3. Monochromatic Lighting Setup
         const ambientLight = new THREE.AmbientLight(0xffffff, 1.1);
@@ -275,18 +276,19 @@ export default function GlobeScrollytelling() {
         // Waypoint 1 (Global -> Africa)
         timeline.to(globe.rotation, {
           x: africaRotX,
-          y: africaRotY,
-          duration: 1.5,
-          ease: "power2.inOut",
-        }, 0);
+            pin: true,
+            anticipatePin: 1,
+          },
+        });
 
+        // Waypoint 1 (Full Earth View)
         timeline.to(camera.position, {
-          z: 240,
+          z: 260,
           duration: 1.5,
           ease: "power2.inOut",
         }, 0);
 
-        // Waypoint 2 (Africa -> Nigeria / Kaduna Centered)
+        // Waypoint 2 (Rotate to focus on Africa & Nigeria)
         timeline.to(globe.rotation, {
           x: kadunaRotX,
           y: kadunaRotY,
@@ -313,25 +315,41 @@ export default function GlobeScrollytelling() {
           },
         }, 3.0);
 
-        // Render loop
+        // Render loop with Viewport Visibility Observer (Pauses when offscreen)
+        let isSectionVisible = true;
         let autoRot = 0;
+
         const animate = () => {
-          // Subtle idle rotation when at top
-          if (timeline && timeline.scrollTrigger && timeline.scrollTrigger.progress === 0) {
-            autoRot += 0.0015;
-            globe.rotation.y = autoRot;
+          if (isSectionVisible && document.visibilityState !== "hidden") {
+            // Subtle idle rotation when at top
+            if (timeline && timeline.scrollTrigger && timeline.scrollTrigger.progress === 0) {
+              autoRot += 0.0015;
+              globe.rotation.y = autoRot;
+            }
+            renderer.render(scene, camera);
           }
-          renderer.render(scene, camera);
           animationFrameId = requestAnimationFrame(animate);
         };
         animate();
 
+        // IntersectionObserver to pause loop when not on screen
+        if (containerRef.current && "IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              isSectionVisible = entry.isIntersecting;
+            },
+            { threshold: 0.05 }
+          );
+          observer.observe(containerRef.current);
+        }
+
         // Responsive Resize
         handleResize = () => {
+          const mobile = window.innerWidth < 768;
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.0 : 1.5));
           ScrollTrigger.refresh();
         };
         window.addEventListener("resize", handleResize);

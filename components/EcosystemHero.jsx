@@ -54,15 +54,16 @@ export default function EcosystemHero() {
         );
         camera.position.set(0, 0, 290);
 
+        const isMobile = window.innerWidth < 768;
         renderer = new THREE.WebGLRenderer({
           canvas: canvasRef.current,
           alpha: true,
-          antialias: true,
+          antialias: !isMobile,
           powerPreference: "high-performance",
           failIfMajorPerformanceCaveat: false,
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5));
 
         // Lighting
         const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
@@ -168,24 +169,39 @@ export default function EcosystemHero() {
         globe.rotation.x = kadunaRotX;
         globe.rotation.y = kadunaRotY;
 
-        // Smooth subtle rotation
+        // Smooth subtle rotation with Viewport Visibility Observer
+        let isSectionVisible = true;
         let rot = kadunaRotY;
         const animate = () => {
-          rot += 0.0018;
-          globe.rotation.y = rot;
-          if (renderer && scene && camera) {
-            renderer.render(scene, camera);
+          if (isSectionVisible && document.visibilityState !== "hidden") {
+            rot += 0.0018;
+            globe.rotation.y = rot;
+            if (renderer && scene && camera) {
+              renderer.render(scene, camera);
+            }
           }
           animationFrameId = requestAnimationFrame(animate);
         };
         animate();
 
+        // IntersectionObserver to pause loop when scrolled out of view
+        if (containerRef.current && "IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              isSectionVisible = entry.isIntersecting;
+            },
+            { threshold: 0.05 }
+          );
+          observer.observe(containerRef.current);
+        }
+
         handleResize = () => {
           if (!camera || !renderer) return;
+          const mobile = window.innerWidth < 768;
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.0 : 1.5));
         };
         window.addEventListener("resize", handleResize);
 
