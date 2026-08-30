@@ -363,46 +363,6 @@ export default function EcosystemHero() {
         </div>
       </div>
 
-      {/* Bottom 3 Engine Mini-Strip */}
-      <div className="relative z-10 mx-auto w-full max-w-4xl pt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/10 pt-4 backdrop-blur-md">
-          <a
-            href="#community"
-            className="flex flex-col items-center sm:items-start text-center sm:text-left p-2 group hover:bg-white/[0.03] rounded-xl transition"
-          >
-            <span className="font-space font-bold text-xs sm:text-sm text-white uppercase group-hover:text-slate-200">
-              01 · Community
-            </span>
-            <span className="text-[0.62rem] sm:text-[0.68rem] font-mono text-slate-400 uppercase mt-0.5">
-              Discover & Connect
-            </span>
-          </a>
-
-          <a
-            href="#academy"
-            className="flex flex-col items-center sm:items-start text-center sm:text-left p-2 group hover:bg-white/[0.03] rounded-xl transition"
-          >
-            <span className="font-space font-bold text-xs sm:text-sm text-white uppercase group-hover:text-slate-200">
-              02 · Academy
-            </span>
-            <span className="text-[0.62rem] sm:text-[0.68rem] font-mono text-slate-400 uppercase mt-0.5">
-              Learn & Practise
-            </span>
-          </a>
-
-          <a
-            href="#buildlab"
-            className="flex flex-col items-center sm:items-start text-center sm:text-left p-2 group hover:bg-white/[0.03] rounded-xl transition"
-          >
-            <span className="font-space font-bold text-xs sm:text-sm text-white uppercase group-hover:text-slate-200">
-              03 · BuildLab
-            </span>
-            <span className="text-[0.62rem] sm:text-[0.68rem] font-mono text-slate-400 uppercase mt-0.5">
-              Build & Launch
-            </span>
-          </a>
-        </div>
-      </div>
     </section>
   );
 }
