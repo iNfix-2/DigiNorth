@@ -380,9 +380,11 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-                <h3 className="text-xl sm:text-2xl font-bold text-white uppercase">Digi02 Tech Systems</h3>
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
+              <h3 className="text-xl sm:text-2xl font-bold text-white uppercase mb-2">
+                Digi02 Tech Systems
+              </h3>
+              <div className="mb-3">
+                <span className="inline-block text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
                   Powering Partner
                 </span>
               </div>
@@ -404,9 +406,11 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-                <h3 className="text-xl sm:text-2xl font-bold text-white uppercase">Nethawk Solutions</h3>
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
+              <h3 className="text-xl sm:text-2xl font-bold text-white uppercase mb-2">
+                Nethawk Solutions
+              </h3>
+              <div className="mb-3">
+                <span className="inline-block text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] font-semibold uppercase">
                   Powering Partner
                 </span>
               </div>
