@@ -114,9 +114,6 @@ export default function LeadershipSection() {
                 </div>
                 
                 <div className="relative z-10 p-6 sm:p-8">
-                  <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
-                    {exec.tag}
-                  </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
                     {exec.name}
                   </h3>

@@ -56,10 +56,6 @@ export default function JoinSection() {
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] text-xs font-mono font-semibold uppercase tracking-widest mb-6">
-            <Sparkles className="w-4 h-4 text-[#38bdf8]" />
-            Find Your Way In
-          </div>
           <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6 uppercase">
             Be Part of the <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.45)]">Northern Tech Renaissance.</span>
           </h2>
