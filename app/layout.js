@@ -38,6 +38,8 @@ export const metadata = {
   },
 };
 
+import SmoothScroll from "@/components/SmoothScroll";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
@@ -50,7 +52,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-[#000000] text-white antialiased selection:bg-[#8abdff] selection:text-black font-sans">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
