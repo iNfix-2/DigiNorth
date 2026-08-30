@@ -53,7 +53,7 @@ export default function Footer() {
       
       {/* Massive Background DIGINORTH Typography Watermark */}
       <div className="pointer-events-none absolute inset-x-0 top-4 sm:top-8 flex items-center justify-center select-none overflow-hidden z-0">
-        <span className="font-space font-black text-6xl sm:text-8xl md:text-9xl lg:text-[13rem] tracking-tighter text-white/[0.04] uppercase leading-none whitespace-nowrap">
+        <span className="font-space font-black text-6xl sm:text-8xl md:text-9xl lg:text-[13rem] tracking-tighter text-white/[0.10] uppercase leading-none whitespace-nowrap">
           DIGINORTH
         </span>
       </div>
