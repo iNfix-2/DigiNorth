@@ -134,9 +134,9 @@ export default function EcosystemPage() {
         </div>
       </section>
 
-      {/* 8-Step Participant Journey — Clean Vertical Dotted Infographic Path */}
-      <section className="py-24 sm:py-28 px-4 sm:px-6 max-w-4xl mx-auto">
-        <div className="mb-16 text-center max-w-2xl mx-auto">
+      {/* 8-Step Participant Journey — Center-Line Vertical Timeline (Matching Pattern) */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto">
+        <div className="mb-20 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             Participant Journey
@@ -152,212 +152,140 @@ export default function EcosystemPage() {
           </p>
         </div>
 
-        {/* Vertical Dotted Path Timeline Container */}
-        <div className="relative">
-          {/* Subtle Ambient Background Glows */}
-          <div className="absolute top-1/4 left-1/3 w-72 h-72 rounded-full bg-[#00f2fe]/10 blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-1/4 right-1/3 w-72 h-72 rounded-full bg-[#0052FF]/15 blur-[100px] pointer-events-none" />
+        {/* Central Vertical Timeline */}
+        <div className="relative max-w-3xl mx-auto">
+          {/* Continuous Glowing Vertical Center Line */}
+          <div className="absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-[2px] bg-gradient-to-b from-[#38bdf8]/40 via-[#0052FF]/60 to-[#38bdf8]/40 shadow-[0_0_12px_rgba(56,189,248,0.5)] pointer-events-none" />
 
-          {/* SVG Dotted Winding Guide Track (Desktop & Tablet) */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
-            viewBox="0 0 800 1760"
-            fill="none"
-            preserveAspectRatio="none"
-          >
-            {/* Dotted S-curves threading through each node */}
-            <path
-              d="M 400 60 
-                 C 260 60, 260 160, 260 210 
-                 C 260 320, 540 330, 540 440 
-                 C 540 550, 260 560, 260 670 
-                 C 260 780, 540 790, 540 900 
-                 C 540 1010, 260 1020, 260 1130 
-                 C 260 1240, 540 1250, 540 1360 
-                 C 540 1470, 260 1480, 260 1590 
-                 C 260 1680, 400 1680, 480 1720"
-              stroke="url(#dotLineGrad)"
-              strokeWidth="2.5"
-              strokeDasharray="6 6"
-              strokeLinecap="round"
-              opacity="0.65"
-            />
-            <defs>
-              <linearGradient id="dotLineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#4ade80" />
-                <stop offset="25%" stopColor="#22d3ee" />
-                <stop offset="55%" stopColor="#0052FF" />
-                <stop offset="80%" stopColor="#a855f7" />
-                <stop offset="100%" stopColor="#38bdf8" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          {/* Vertical Linear Track for Mobile (< md screens) */}
-          <div className="absolute left-6 top-6 bottom-16 w-px border-l-2 border-dashed border-white/20 md:hidden pointer-events-none" />
-
-          {/* 8 Milestone Steps */}
-          <div className="space-y-12 sm:space-y-16 relative z-10">
+          {/* Steps */}
+          <div className="space-y-16 sm:space-y-24 relative">
             {[
               {
-                step: "STEP 01",
+                num: "01",
+                category: "COMMUNITY EXPLORATION",
                 title: "DISCOVER",
-                desc: "Understand technology opportunities, explore local challenges, and find your community belonging.",
-                icon: Lightbulb,
-                color: "#84cc16", // Lime / Green
-                bgGrad: "from-[#84cc16]/20 to-transparent",
-                ringBorder: "border-[#84cc16]",
-                textColor: "text-[#84cc16]",
+                desc: "Join community meetups, meet builders, explore domain tracks, and find your starting point in the ecosystem.",
                 isLeft: true,
               },
               {
-                step: "STEP 02",
+                num: "02",
+                category: "SKILL MASTERY",
                 title: "LEARN",
-                desc: "Build practical, job-ready foundations through structured Emerging Tech Academy pathways.",
-                icon: BookOpen,
-                color: "#10b981", // Emerald
-                bgGrad: "from-[#10b981]/20 to-transparent",
-                ringBorder: "border-[#10b981]",
-                textColor: "text-[#10b981]",
+                desc: "Master hands-on tech skills in Academy with weekly practice, deep mentorship, and rigorous code reviews.",
                 isLeft: false,
               },
               {
-                step: "STEP 03",
-                title: "JOIN",
-                desc: "Enter the right participation lane matched to your current capability and ambition.",
-                icon: Users,
-                color: "#06b6d4", // Cyan
-                bgGrad: "from-[#06b6d4]/20 to-transparent",
-                ringBorder: "border-[#06b6d4]",
-                textColor: "text-[#06b6d4]",
+                num: "03",
+                category: "COLLABORATIVE SQUADS",
+                title: "JOIN A TEAM",
+                desc: "Form multidisciplinary squads with developers, UI/UX designers, product managers, and researchers.",
                 isLeft: true,
               },
               {
-                step: "STEP 04",
-                title: "COLLABORATE",
-                desc: "Form multidisciplinary builder squads across Northern Nigerian hubs to tackle real problems.",
-                icon: Clock,
-                color: "#0284c7", // Sky blue
-                bgGrad: "from-[#0284c7]/20 to-transparent",
-                ringBorder: "border-[#0284c7]",
-                textColor: "text-[#0284c7]",
-                isLeft: false,
-              },
-              {
-                step: "STEP 05",
+                num: "04",
+                category: "PRACTICAL ENGINEERING",
                 title: "BUILD",
-                desc: "Create working evidence, validated prototypes, and software architectures in BuildLab.",
-                icon: Cpu,
-                color: "#0052FF", // Electric Blue
-                bgGrad: "from-[#0052FF]/20 to-transparent",
-                ringBorder: "border-[#0052FF]",
-                textColor: "text-[#38bdf8]",
-                isLeft: true,
-              },
-              {
-                step: "STEP 06",
-                title: "DEMONSTRATE",
-                desc: "Show verified progress publicly at demo days, partner showcases, and hackathons.",
-                icon: Eye,
-                color: "#6366f1", // Indigo
-                bgGrad: "from-[#6366f1]/20 to-transparent",
-                ringBorder: "border-[#6366f1]",
-                textColor: "text-[#818cf8]",
+                desc: "Work on real regional problems in BuildLab to create functional, robust, and high-quality tech solutions.",
                 isLeft: false,
               },
               {
-                step: "STEP 07",
-                title: "LAUNCH",
-                desc: "Move validated solutions toward live commercial pilots, real users, and venture products.",
-                icon: Target,
-                color: "#a855f7", // Purple
-                bgGrad: "from-[#a855f7]/20 to-transparent",
-                ringBorder: "border-[#a855f7]",
-                textColor: "text-[#c084fc]",
+                num: "05",
+                category: "PROOF OF WORK",
+                title: "DEMONSTRATE",
+                desc: "Present working software at Saturday Starter Circle sessions, peer feedback rounds, and community demo days.",
                 isLeft: true,
               },
               {
-                step: "STEP 08",
+                num: "06",
+                category: "VENTURE & PRODUCTION",
+                title: "LAUNCH",
+                desc: "Deploy products into the wild, pitch to founders and investors, or scale into enduring commercial ventures.",
+                isLeft: false,
+              },
+              {
+                num: "07",
+                category: "ECOSYSTEM GROWTH",
+                title: "SCALE & PILOT",
+                desc: "Advance validated solutions into public and private sector pilots across Northern Nigeria.",
+                isLeft: true,
+              },
+              {
+                num: "08",
+                category: "NETWORK STEWARDSHIP",
                 title: "MENTOR",
                 desc: "Help the next cohort move faster, open partner networks, and strengthen the regional ecosystem.",
-                icon: Send,
-                color: "#ec4899", // Pink / Fuchsia
-                bgGrad: "from-[#ec4899]/20 to-transparent",
-                ringBorder: "border-[#ec4899]",
-                textColor: "text-[#f472b6]",
                 isLeft: false,
               },
-            ].map((s, idx) => {
-              const Icon = s.icon;
-              return (
-                <div
-                  key={idx}
-                  className={`flex flex-col md:flex-row items-start md:items-center gap-5 sm:gap-8 ${
-                    s.isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* Circular Node with Segmented Accent Ring */}
-                  <div className="relative flex-shrink-0 z-20 group">
-                    {/* Outer Segmented Arc Ring (Like reference infographic) */}
-                    <div
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-1 relative transition-transform duration-300 group-hover:scale-105"
-                      style={{
-                        background: `radial-gradient(circle, ${s.color}15 0%, transparent 70%)`,
-                      }}
-                    >
-                      {/* Decorative outer arc brackets */}
-                      <div
-                        className="absolute inset-0 rounded-full border-2 border-transparent transition-all duration-300"
-                        style={{
-                          borderTopColor: s.color,
-                          borderBottomColor: s.color,
-                          transform: `rotate(${idx * 45}deg)`,
-                          boxShadow: `0 0 16px ${s.color}40`,
-                        }}
-                      />
-
-                      {/* Inner Circular Card */}
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/90 border border-white/15 flex items-center justify-center shadow-xl relative backdrop-blur-md">
-                        <Icon
-                          className="w-5 h-5 sm:w-7 sm:h-7 transition-colors duration-300"
-                          style={{ color: s.color }}
-                        />
-                      </div>
+            ].map((step, idx) => (
+              <div key={idx} className="relative flex items-center justify-between group">
+                {/* Left Side Container */}
+                <div className="w-[42%] flex items-center justify-end">
+                  {step.isLeft ? (
+                    /* Content on Left (Right-Aligned towards center) */
+                    <div className="text-right pr-2 sm:pr-4">
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold text-[#38bdf8] tracking-widest uppercase mb-1 block">
+                        {step.category}
+                      </span>
+                      <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 group-hover:text-[#93c5fd] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
+                        {step.desc}
+                      </p>
                     </div>
-                  </div>
-
-                  {/* Content Block */}
-                  <div
-                    className={`flex-1 pl-12 md:pl-0 ${
-                      s.isLeft ? "md:text-left" : "md:text-right"
-                    }`}
-                  >
-                    <div
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono font-bold mb-1.5 ${s.textColor}`}
-                    >
-                      <span>{s.step}</span>
+                  ) : (
+                    /* Number on Left */
+                    <div className="pr-4 sm:pr-6">
+                      <span className="text-2xl sm:text-4xl font-extrabold font-mono text-slate-700/80 group-hover:text-slate-500 transition-colors select-none">
+                        {step.num}
+                      </span>
                     </div>
-                    <h3 className="text-base sm:text-xl font-extrabold text-white tracking-tight uppercase mb-1">
-                      {s.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-md">
-                      {s.desc}
-                    </p>
+                  )}
+                </div>
+
+                {/* Center Concentric Glowing Node */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#38bdf8] bg-black flex items-center justify-center shadow-[0_0_16px_rgba(56,189,248,0.7)] group-hover:scale-125 group-hover:shadow-[0_0_24px_rgba(56,189,248,1)] transition-all duration-300">
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" />
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Right Side Container */}
+                <div className="w-[42%] flex items-center justify-start">
+                  {!step.isLeft ? (
+                    /* Content on Right (Left-Aligned away from center) */
+                    <div className="text-left pl-2 sm:pr-0 sm:pl-4">
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold text-[#38bdf8] tracking-widest uppercase mb-1 block">
+                        {step.category}
+                      </span>
+                      <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 group-hover:text-[#93c5fd] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </div>
+                  ) : (
+                    /* Number on Right */
+                    <div className="pl-4 sm:pl-6">
+                      <span className="text-2xl sm:text-4xl font-extrabold font-mono text-slate-700/80 group-hover:text-slate-500 transition-colors select-none">
+                        {step.num}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Ending Trail with Paper Plane Launch Icon */}
-          <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 text-center sm:text-left">
+          {/* Bottom Note */}
+          <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 text-center sm:text-left">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
               <span>Full Pipeline Continuum · From First Discovery to Scaled Impact</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-500">
-              <Send className="w-3.5 h-3.5 text-[#38bdf8]" />
-              <span>DigiNorth Ecosystem 2026–2027</span>
+            <div className="text-slate-500">
+              DigiNorth Ecosystem 2026–2027
             </div>
           </div>
         </div>
