@@ -110,7 +110,7 @@ export default function EcosystemPage() {
       </section>
 
       {/* Signal Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-6">
+      <section className="bg-white/[0.02] py-8 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">01 · Discover</span>
@@ -278,22 +278,11 @@ export default function EcosystemPage() {
               </div>
             ))}
           </div>
-
-          {/* Bottom Note */}
-          <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 text-center sm:text-left">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
-              <span>Full Pipeline Continuum · From First Discovery to Scaled Impact</span>
-            </div>
-            <div className="text-slate-500">
-              DigiNorth Ecosystem 2026–2027
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Three Connected Engines */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-6 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
@@ -338,7 +327,7 @@ export default function EcosystemPage() {
       </section>
 
       {/* Current Programmes */}
-      <section className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-28 px-6 max-w-7xl mx-auto">
         <div className="mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
             Current Programmes
@@ -371,7 +360,7 @@ export default function EcosystemPage() {
       </section>
 
       {/* CTA Band */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.02]">
+      <section className="py-24 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
             The Regional Ambition
