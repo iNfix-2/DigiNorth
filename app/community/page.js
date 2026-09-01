@@ -88,13 +88,13 @@ export default function CommunityPage() {
       {/* Hero Section */}
       <section className="pt-36 pb-20 px-6 max-w-7xl mx-auto relative overflow-hidden">
         <div className="max-w-3xl relative z-10">
-          <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-tight mb-6">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6">
             Find your people. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.45)]">
               Learn Together. Build Together.
             </span>
           </h1>
-          <p className="text-slate-300 text-lg leading-relaxed font-light mb-8 max-w-2xl">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light mb-8 max-w-2xl">
             A working technology community for beginners, learners, developers, designers, researchers, founders, mentors, product thinkers, and innovators across Northern Nigeria.
           </p>
           <div className="flex flex-wrap gap-4">
