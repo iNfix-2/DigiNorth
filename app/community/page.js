@@ -152,31 +152,130 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* Participation Lanes */}
-      <section className="py-28 px-6 max-w-7xl mx-auto">
-        <div className="mb-16">
+      {/* Participant Journey — Snake Path Infographic */}
+      <section className="py-28 px-6 max-w-7xl mx-auto overflow-x-auto">
+        <div className="mb-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
-            Participation Lanes
+            Participant Journey
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
-            You do not need to know everything <br />
+            A Pathway Designed for Momentum—<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF]">
-              Before You Belong.
+              Not Isolated Activity.
             </span>
           </h2>
           <p className="text-slate-400 text-sm max-w-2xl mt-4 font-light leading-relaxed">
-            Members enter through the lane that reflects what they can do now, then move as their skills and responsibilities grow.
+            Each stage has a clear purpose. People can enter at the level that matches their experience and move forward as their capability grows.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {lanes.map((l, idx) => (
-            <div key={idx} className="bg-black border border-white/10 p-8 rounded-3xl hover:border-white/30 transition shadow-xl">
-              <span className="text-xs font-mono text-[#38bdf8] block mb-3">{l.code}</span>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase">{l.title}</h3>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">{l.desc}</p>
-            </div>
-          ))}
+        {/* Snake SVG infographic */}
+        <div className="min-w-[700px]">
+          {/* Row 1: steps 1–4, alternating high/low */}
+          <div className="relative flex items-center justify-between mb-0" style={{ height: "260px" }}>
+            {/* Wavy dotted SVG path */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 260" preserveAspectRatio="none" fill="none">
+              <path
+                d="M100 190 Q200 60 300 190 Q400 320 500 190 Q600 60 700 190"
+                stroke="#38bdf8"
+                strokeWidth="1.5"
+                strokeDasharray="6 5"
+                opacity="0.35"
+              />
+            </svg>
+
+            {[
+              { num: "01", label: "DISCOVER", desc: "Understand technology and opportunity through community belonging.", top: true },
+              { num: "02", label: "LEARN", desc: "Build practical foundations in the Emerging Tech Academy.", top: false },
+              { num: "03", label: "JOIN", desc: "Enter the right community lane based on current readiness.", top: true },
+              { num: "04", label: "COLLABORATE", desc: "Form useful multidisciplinary squads across Northern Nigeria.", top: false },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="relative z-10 flex flex-col items-center text-center"
+                style={{ width: "25%", position: "absolute", left: `${i * 25 + 12.5}%`, top: step.top ? "20px" : "auto", bottom: step.top ? "auto" : "20px" }}
+              >
+                {!step.top && (
+                  <div className="mb-3 space-y-0.5">
+                    <span className="text-[#38bdf8] text-[10px] font-mono font-bold block">{step.num}</span>
+                    <span className="text-white text-xs font-extrabold uppercase tracking-wider block">{step.label}</span>
+                    <p className="text-slate-400 text-[10px] font-light leading-relaxed max-w-[120px] mx-auto">{step.desc}</p>
+                  </div>
+                )}
+                <div className="relative">
+                  <div className="w-[72px] h-[72px] rounded-full border-2 border-[#38bdf8] bg-black flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.35)]">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0052FF]/25 to-[#38bdf8]/15 border border-[#38bdf8]/30 flex items-center justify-center">
+                      <span className="text-[#38bdf8] text-base font-black font-mono">{parseInt(step.num)}</span>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 rounded-full border border-[#38bdf8]/15 scale-[1.3] animate-pulse pointer-events-none" />
+                </div>
+                {step.top && (
+                  <div className="mt-3 space-y-0.5">
+                    <span className="text-[#38bdf8] text-[10px] font-mono font-bold block">{step.num}</span>
+                    <span className="text-white text-xs font-extrabold uppercase tracking-wider block">{step.label}</span>
+                    <p className="text-slate-400 text-[10px] font-light leading-relaxed max-w-[120px] mx-auto">{step.desc}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Turn connector */}
+          <div className="relative" style={{ height: "40px" }}>
+            <svg className="absolute w-full h-full" viewBox="0 0 800 40" preserveAspectRatio="none" fill="none">
+              <path d="M700 0 Q750 20 700 40" stroke="#0052FF" strokeWidth="1.5" strokeDasharray="6 5" opacity="0.35" />
+            </svg>
+          </div>
+
+          {/* Row 2: steps 5–8, reversed direction, alternating low/high */}
+          <div className="relative flex items-center justify-between" style={{ height: "260px" }}>
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 260" preserveAspectRatio="none" fill="none">
+              <path
+                d="M700 70 Q600 200 500 70 Q400 -60 300 70 Q200 200 100 70"
+                stroke="#0052FF"
+                strokeWidth="1.5"
+                strokeDasharray="6 5"
+                opacity="0.35"
+              />
+            </svg>
+
+            {[
+              { num: "05", label: "BUILD", desc: "Create working evidence and prototypes in BuildLab.", top: false },
+              { num: "06", label: "DEMONSTRATE", desc: "Show verified progress publicly at demo days and showcases.", top: true },
+              { num: "07", label: "LAUNCH", desc: "Move validated solutions toward pilots, users, and venture products.", top: false },
+              { num: "08", label: "MENTOR", desc: "Help the next cohort move faster and strengthen the network.", top: true },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="relative z-10 flex flex-col items-center text-center"
+                style={{ width: "25%", position: "absolute", left: `${i * 25 + 12.5}%`, top: step.top ? "20px" : "auto", bottom: step.top ? "auto" : "20px" }}
+              >
+                {!step.top && (
+                  <div className="mb-3 space-y-0.5">
+                    <span className="text-[#93c5fd] text-[10px] font-mono font-bold block">{step.num}</span>
+                    <span className="text-white text-xs font-extrabold uppercase tracking-wider block">{step.label}</span>
+                    <p className="text-slate-400 text-[10px] font-light leading-relaxed max-w-[120px] mx-auto">{step.desc}</p>
+                  </div>
+                )}
+                <div className="relative">
+                  <div className="w-[72px] h-[72px] rounded-full border-2 border-[#0052FF] bg-black flex items-center justify-center shadow-[0_0_20px_rgba(0,82,255,0.4)]">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0052FF]/25 to-[#38bdf8]/10 border border-[#0052FF]/30 flex items-center justify-center">
+                      <span className="text-[#93c5fd] text-base font-black font-mono">{parseInt(step.num)}</span>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 rounded-full border border-[#0052FF]/15 scale-[1.3] animate-pulse pointer-events-none" style={{ animationDelay: "0.7s" }} />
+                </div>
+                {step.top && (
+                  <div className="mt-3 space-y-0.5">
+                    <span className="text-[#93c5fd] text-[10px] font-mono font-bold block">{step.num}</span>
+                    <span className="text-white text-xs font-extrabold uppercase tracking-wider block">{step.label}</span>
+                    <p className="text-slate-400 text-[10px] font-light leading-relaxed max-w-[120px] mx-auto">{step.desc}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
