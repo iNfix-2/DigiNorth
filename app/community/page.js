@@ -87,12 +87,7 @@ export default function CommunityPage() {
 
       {/* Hero Section */}
       <section className="pt-36 pb-20 px-6 max-w-7xl mx-auto relative overflow-hidden">
-        {/* Foreground Content - Exact unshifted layout */}
         <div className="max-w-3xl relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-6">
-            <Users className="w-3.5 h-3.5" />
-            DigiNorth Community · Every Friday & Saturday
-          </div>
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-tight mb-6">
             Find your people. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.45)]">
