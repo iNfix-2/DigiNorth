@@ -86,10 +86,10 @@ export default function CommunityPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-20 px-4 sm:px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="pt-36 pb-20 px-4 sm:px-6 max-w-7xl mx-auto relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
           {/* Left Column - Copy */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8]">
               <Users className="w-3.5 h-3.5" />
               DigiNorth Community · Every Friday & Saturday
@@ -114,30 +114,17 @@ export default function CommunityPage() {
             </div>
           </div>
 
-          {/* Right Column - Interconnected Network Hands Visual */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative w-full max-w-md rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-slate-950 group">
-              <div className="aspect-[9/16] max-h-[460px] w-full relative">
-                <img
-                  src="/images/community-network-hands.jpg"
-                  alt="DigiNorth interconnected builders network constellation"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                <div className="pointer-events-none absolute -inset-px rounded-3xl border border-[#38bdf8]/30 shadow-[0_0_30px_rgba(0,82,255,0.25)]" />
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-5 space-y-1.5 bg-gradient-to-t from-black via-black/80 to-transparent">
-                <span className="text-[10px] font-mono text-[#38bdf8] uppercase tracking-widest block font-bold">
-                  ECOSYSTEM NETWORK // COLLABORATION NODES
-                </span>
-                <h3 className="text-base font-extrabold text-white uppercase leading-snug">
-                  Four Lanes. One Community.
-                </h3>
-                <p className="text-xs text-slate-300 font-light">
-                  Connecting Explorers, Learners, Builders, and Mentors across Northern Nigeria.
-                </p>
-              </div>
+          {/* Right Column - Seamless Glowing Hero Image */}
+          <div className="lg:col-span-6 relative flex items-center justify-center">
+            {/* Subtle atmospheric ambient glow */}
+            <div className="pointer-events-none absolute -inset-4 rounded-full bg-gradient-to-tr from-[#0052FF]/20 via-[#38bdf8]/10 to-transparent blur-3xl" />
+            
+            <div className="relative w-full max-w-lg lg:max-w-xl aspect-square flex items-center justify-center select-none pointer-events-none">
+              <img
+                src="/images/community-network-hands.png"
+                alt="DigiNorth interconnected builders network constellation"
+                className="w-full h-full object-contain filter drop-shadow-[0_0_60px_rgba(0,82,255,0.5)] animate-in fade-in zoom-in-95 duration-1000"
+              />
             </div>
           </div>
         </div>
