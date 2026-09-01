@@ -30,7 +30,7 @@ const ECOSYSTEM_LINKS = [
   { name: "BuildLab", href: "/buildlab" },
   { name: "Projects", href: "/projects" },
   { name: "Events", href: "/events" },
-  { name: "Stories", href: "/stories" },
+  { name: "Insights", href: "/insights" },
   { name: "About", href: "/about" },
   { name: "Hackathon", href: "/hackathon" },
   { name: "Join", href: "/join" },
