@@ -91,10 +91,10 @@ export default function CommunityPage() {
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6">
             Find your people. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.45)]">
-              Learn Together. Build Together.
+              Learn Together. <br className="sm:hidden" />Build Together.
             </span>
           </h1>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light mb-8 max-w-2xl">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light mb-8 max-w-[60%] sm:max-w-2xl">
             A working technology community for beginners, learners, developers, designers, researchers, founders, mentors, product thinkers, and innovators across Northern Nigeria.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -118,32 +118,6 @@ export default function CommunityPage() {
             alt="DigiNorth interconnected builders network constellation"
             className="w-full h-full object-contain filter drop-shadow-[0_0_60px_rgba(0,82,255,0.55)] opacity-90 lg:opacity-100 animate-in fade-in duration-700"
           />
-        </div>
-      </section>
-
-      {/* Weekly Rhythm Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div>
-            <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Friday</span>
-            <strong className="text-sm font-bold text-white block">Community & Exposure</strong>
-            <span className="text-xs text-slate-400 font-light">Updates, learning, opportunities, and team alignment.</span>
-          </div>
-          <div>
-            <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Saturday</span>
-            <strong className="text-sm font-bold text-white block">Practice & Delivery</strong>
-            <span className="text-xs text-slate-400 font-light">Starter Circle, BuildLab sprints, and demonstrations.</span>
-          </div>
-          <div>
-            <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Entry</span>
-            <strong className="text-sm font-bold text-white block">All Experience Levels</strong>
-            <span className="text-xs text-slate-400 font-light">Start as an Explorer, Learner, Builder, Mentor, or Partner.</span>
-          </div>
-          <div>
-            <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Standard</span>
-            <strong className="text-sm font-bold text-white block">Evidence Over Attendance</strong>
-            <span className="text-xs text-slate-400 font-light">Learning tasks, research, designs, tests, and working code.</span>
-          </div>
         </div>
       </section>
 
