@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Compass, BookOpen, Cpu, Sparkles, Layers, CheckCircle2, Users, Lightbulb, Clock, Eye, Target, Send } from "lucide-react";
 import { ScrambleText } from "@/components/useScrambleText";
-import ScrollRoadmap from "@/components/ScrollRoadmap";
+import EngineSlider from "@/components/EngineSlider";
 
 export default function EcosystemPage() {
   const pathwaySteps = [
@@ -281,49 +281,19 @@ export default function EcosystemPage() {
         </div>
       </section>
 
-      {/* Three Connected Engines */}
-      <section className="py-24 px-6 bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
-              Three Connected Engines
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white uppercase">
-              Different Functions. <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF]">One Regional Mission.</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {engines.map((e, idx) => {
-              const Icon = e.icon;
-              return (
-                <Link
-                  key={idx}
-                  href={e.link}
-                  className="bg-black border border-white/10 rounded-3xl p-8 hover:border-white/30 hover:-translate-y-1 transition-all shadow-xl flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="text-xs font-mono text-slate-400">{e.code}</span>
-                      <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-white group-hover:text-[#38bdf8]">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-white uppercase mb-4 group-hover:text-slate-200">
-                      {e.title}
-                    </h3>
-                    <p className="text-xs text-slate-300 leading-relaxed font-light mb-6">
-                      {e.desc}
-                    </p>
-                  </div>
-                  <span className="text-xs font-mono font-bold text-[#38bdf8] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    {e.linkText}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+      {/* Three Connected Engines — Cinematic Image Background Slider */}
+      <section className="py-24 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
+            Three Connected Engines
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
+            Different Functions. <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF]">One Regional Mission.</span>
+          </h2>
         </div>
+
+        {/* Cinematic Slider */}
+        <EngineSlider />
       </section>
 
       {/* Current Programmes */}
