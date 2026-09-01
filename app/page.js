@@ -1,7 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
-import EcosystemHero from "@/components/EcosystemHero";
+const EcosystemHero = dynamic(() => import("@/components/EcosystemHero"), {
+  ssr: false,
+});
 import EcosystemEngines from "@/components/EcosystemEngines";
 import ProgressionPathway from "@/components/ProgressionPathway";
 import HackathonSection from "@/components/HackathonSection";
