@@ -135,9 +135,9 @@ export default function EcosystemPage() {
         </div>
       </section>
 
-      {/* 8-Step Participant Journey — Scroll-Driven Animated Roadmap */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
-        <div className="mb-12 text-center max-w-2xl mx-auto">
+      {/* 8-Step Participant Journey — Center-Line Vertical Timeline */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto">
+        <div className="mb-20 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             Participant Journey
@@ -153,8 +153,143 @@ export default function EcosystemPage() {
           </p>
         </div>
 
-        {/* Scroll-Driven Pinned Interactive Roadmap Viewport */}
-        <ScrollRoadmap />
+        {/* Central Vertical Timeline */}
+        <div className="relative max-w-3xl mx-auto">
+          {/* Continuous Glowing Vertical Center Line */}
+          <div className="absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-[2px] bg-gradient-to-b from-[#38bdf8]/40 via-[#0052FF]/60 to-[#38bdf8]/40 shadow-[0_0_12px_rgba(56,189,248,0.5)] pointer-events-none" />
+
+          {/* Steps */}
+          <div className="space-y-16 sm:space-y-24 relative">
+            {[
+              {
+                num: "01",
+                category: "COMMUNITY EXPLORATION",
+                title: "DISCOVER",
+                desc: "Join community meetups, meet builders, explore domain tracks, and find your starting point in the ecosystem.",
+                isLeft: true,
+              },
+              {
+                num: "02",
+                category: "SKILL MASTERY",
+                title: "LEARN",
+                desc: "Master hands-on tech skills in Academy with weekly practice, deep mentorship, and rigorous code reviews.",
+                isLeft: false,
+              },
+              {
+                num: "03",
+                category: "COLLABORATIVE SQUADS",
+                title: "JOIN A TEAM",
+                desc: "Form multidisciplinary squads with developers, UI/UX designers, product managers, and researchers.",
+                isLeft: true,
+              },
+              {
+                num: "04",
+                category: "PRACTICAL ENGINEERING",
+                title: "BUILD",
+                desc: "Work on real regional problems in BuildLab to create functional, robust, and high-quality tech solutions.",
+                isLeft: false,
+              },
+              {
+                num: "05",
+                category: "PROOF OF WORK",
+                title: "DEMONSTRATE",
+                desc: "Present working software at Saturday Starter Circle sessions, peer feedback rounds, and community demo days.",
+                isLeft: true,
+              },
+              {
+                num: "06",
+                category: "VENTURE & PRODUCTION",
+                title: "LAUNCH",
+                desc: "Deploy products into the wild, pitch to founders and investors, or scale into enduring commercial ventures.",
+                isLeft: false,
+              },
+              {
+                num: "07",
+                category: "ECOSYSTEM GROWTH",
+                title: "SCALE & PILOT",
+                desc: "Advance validated solutions into public and private sector pilots across Northern Nigeria.",
+                isLeft: true,
+              },
+              {
+                num: "08",
+                category: "NETWORK STEWARDSHIP",
+                title: "MENTOR",
+                desc: "Help the next cohort move faster, open partner networks, and strengthen the regional ecosystem.",
+                isLeft: false,
+              },
+            ].map((step, idx) => (
+              <div key={idx} className="relative flex items-center justify-between group">
+                {/* Left Side Container */}
+                <div className="w-[42%] flex items-center justify-end">
+                  {step.isLeft ? (
+                    /* Content on Left (Right-Aligned towards center) */
+                    <div className="text-right pr-2 sm:pr-4">
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold text-[#38bdf8] tracking-widest uppercase mb-1 block">
+                        {step.category}
+                      </span>
+                      <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 group-hover:text-[#93c5fd] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </div>
+                  ) : (
+                    /* Number on Left */
+                    <div className="pr-4 sm:pr-6">
+                      <span className="text-2xl sm:text-4xl font-extrabold font-mono text-slate-700/80 group-hover:text-slate-500 transition-colors select-none">
+                        {step.num}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Center Concentric Glowing Node */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#38bdf8] bg-black flex items-center justify-center shadow-[0_0_16px_rgba(56,189,248,0.7)] group-hover:scale-125 group-hover:shadow-[0_0_24px_rgba(56,189,248,1)] transition-all duration-300">
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" />
+                  </div>
+                </div>
+
+                {/* Right Side Container */}
+                <div className="w-[42%] flex items-center justify-start">
+                  {!step.isLeft ? (
+                    /* Content on Right (Left-Aligned away from center) */
+                    <div className="text-left pl-2 sm:pr-0 sm:pl-4">
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold text-[#38bdf8] tracking-widest uppercase mb-1 block">
+                        {step.category}
+                      </span>
+                      <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 group-hover:text-[#93c5fd] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </div>
+                  ) : (
+                    /* Number on Right */
+                    <div className="pl-4 sm:pl-6">
+                      <span className="text-2xl sm:text-4xl font-extrabold font-mono text-slate-700/80 group-hover:text-slate-500 transition-colors select-none">
+                        {step.num}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Note */}
+          <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 text-center sm:text-left">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
+              <span>Full Pipeline Continuum · From First Discovery to Scaled Impact</span>
+            </div>
+            <div className="text-slate-500">
+              DigiNorth Ecosystem 2026–2027
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Three Connected Engines */}
