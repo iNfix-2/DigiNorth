@@ -86,29 +86,59 @@ export default function CommunityPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-20 px-6 max-w-7xl mx-auto">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-6">
-            <Users className="w-3.5 h-3.5" />
-            DigiNorth Community · Every Friday & Saturday
+      <section className="pt-36 pb-20 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column - Copy */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8]">
+              <Users className="w-3.5 h-3.5" />
+              DigiNorth Community · Every Friday & Saturday
+            </div>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-[1.02]">
+              Find your people. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.45)]">
+                Learn Together. Build Together.
+              </span>
+            </h1>
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light max-w-xl">
+              A working technology community for beginners, learners, developers, designers, researchers, founders, mentors, product thinkers, and innovators across Northern Nigeria.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link href="/community/register" className="button-enchanced is-primary !py-3.5 !px-8 text-xs font-bold uppercase tracking-wider">
+                <span>Join the Community</span>
+                <ArrowRight className="ml-2 h-4 w-4 inline" />
+              </Link>
+              <Link href="/projects" className="button-enchanced is-outline text-xs font-medium text-slate-300 hover:text-white">
+                Find a Project
+              </Link>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-tight mb-6">
-            Find your people. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.45)]">
-              Learn Together. Build Together.
-            </span>
-          </h1>
-          <p className="text-slate-300 text-lg leading-relaxed font-light mb-8">
-            A working technology community for beginners, learners, developers, designers, researchers, founders, mentors, product thinkers, and innovators across Northern Nigeria.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/join" className="button-enchanced is-primary !py-3.5 !px-8 text-xs font-bold uppercase tracking-wider">
-              <span>Join the Community</span>
-              <ArrowRight className="ml-2 h-4 w-4 inline" />
-            </Link>
-            <Link href="/projects" className="button-enchanced is-outline text-xs font-medium text-slate-300 hover:text-white">
-              Find a Project
-            </Link>
+
+          {/* Right Column - Interconnected Network Hands Visual */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            <div className="relative w-full max-w-md rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-slate-950 group">
+              <div className="aspect-[9/16] max-h-[460px] w-full relative">
+                <img
+                  src="/images/community-network-hands.jpg"
+                  alt="DigiNorth interconnected builders network constellation"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                <div className="pointer-events-none absolute -inset-px rounded-3xl border border-[#38bdf8]/30 shadow-[0_0_30px_rgba(0,82,255,0.25)]" />
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-5 space-y-1.5 bg-gradient-to-t from-black via-black/80 to-transparent">
+                <span className="text-[10px] font-mono text-[#38bdf8] uppercase tracking-widest block font-bold">
+                  ECOSYSTEM NETWORK // COLLABORATION NODES
+                </span>
+                <h3 className="text-base font-extrabold text-white uppercase leading-snug">
+                  Four Lanes. One Community.
+                </h3>
+                <p className="text-xs text-slate-300 font-light">
+                  Connecting Explorers, Learners, Builders, and Mentors across Northern Nigeria.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
