@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, Compass, BookOpen, Cpu, Sparkles, Layers, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Compass, BookOpen, Cpu, Sparkles, Layers, CheckCircle2, Users } from "lucide-react";
 import { ScrambleText } from "@/components/useScrambleText";
 
 export default function EcosystemPage() {
@@ -134,129 +134,345 @@ export default function EcosystemPage() {
         </div>
       </section>
 
-      {/* 8-Step Participant Journey — Connected Snake Track */}
-      <section className="py-28 px-6 max-w-7xl mx-auto">
-        <div className="mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
-            Participant Journey
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
-            A pathway designed for momentum— <br />
+      {/* 8-Step Participant Journey — 3D Glowing Winding Road Infographic */}
+      <section className="py-28 px-6 max-w-7xl mx-auto overflow-hidden">
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            Participant Roadmap
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+            A Pathway Designed for Momentum— <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF]">
               Not Isolated Activity.
             </span>
           </h2>
-          <p className="text-slate-400 text-sm max-w-2xl mt-4 font-light leading-relaxed">
-            Each stage has a clear purpose. People can enter at the level that matches their experience and move forward as their capability grows.
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mt-4 font-light leading-relaxed">
+            Each stage has a clear purpose. People can enter at the level that matches their experience and move forward as their capability grows along a connected regional pipeline.
           </p>
         </div>
 
-        {/* Single connected snake track — scrolls horizontally on small screens */}
-        <div className="overflow-x-auto pb-4">
-          <div style={{ minWidth: "800px", position: "relative", height: "420px" }}>
+        {/* 3D Winding Road Visual Container */}
+        <div className="relative w-full rounded-3xl bg-gradient-to-b from-white/[0.03] via-black to-black/90 border border-white/10 p-4 sm:p-8 lg:p-12 shadow-2xl overflow-x-auto">
+          {/* Background Ambient Glows */}
+          <div className="absolute top-1/4 left-1/6 w-96 h-96 rounded-full bg-[#00f2fe]/10 blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-[#0052FF]/15 blur-[120px] pointer-events-none" />
+          <div className="absolute top-10 right-10 w-80 h-80 rounded-full bg-[#38bdf8]/10 blur-[100px] pointer-events-none" />
 
-            {/* One continuous SVG path through all 8 nodes */}
+          {/* Desktop & Tablet 3D Road SVG Viewport */}
+          <div className="relative min-w-[980px] h-[720px]">
             <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              viewBox="0 0 800 420"
-              preserveAspectRatio="none"
+              className="absolute inset-0 w-full h-full"
+              viewBox="0 0 1100 700"
               fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Single continuous wavy dashed line connecting all 8 nodes */}
-              <path
-                d="M50 180 C100 60, 150 60, 200 180 C250 300, 300 300, 350 180 C400 60, 450 60, 500 180 C550 300, 600 300, 650 180 C700 60, 750 60, 750 180"
-                stroke="url(#snakeGrad)"
-                strokeWidth="1.5"
-                strokeDasharray="7 5"
-                opacity="0.5"
-              />
               <defs>
-                <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#38bdf8" />
-                  <stop offset="50%" stopColor="#0052FF" />
+                {/* Road Extrusion Glow Gradient */}
+                <linearGradient id="roadExtrudeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.8" />
+                  <stop offset="45%" stopColor="#0052FF" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.95" />
+                </linearGradient>
+
+                {/* Road Surface Gradient */}
+                <linearGradient id="roadSurfaceGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0a1220" />
+                  <stop offset="50%" stopColor="#0d1b33" />
+                  <stop offset="100%" stopColor="#0b172e" />
+                </linearGradient>
+
+                {/* Arrow Gradient */}
+                <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0052FF" />
                   <stop offset="100%" stopColor="#38bdf8" />
                 </linearGradient>
+
+                {/* Glow Filter for Edges */}
+                <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="8" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="16" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
               </defs>
+
+              {/* 1. Deep 3D Shadow Ribbon */}
+              <path
+                d="M 90 620 C 180 620 220 540 290 480 C 340 435 270 340 370 290 C 470 240 500 390 620 380 C 730 370 700 230 810 200 C 890 175 920 220 980 140"
+                transform="translate(0, 24)"
+                stroke="#000000"
+                strokeWidth="60"
+                strokeLinecap="round"
+                opacity="0.8"
+                filter="url(#softGlow)"
+              />
+
+              {/* 2. 3D Under-Extrusion & Neon Bottom Lip */}
+              <path
+                d="M 90 620 C 180 620 220 540 290 480 C 340 435 270 340 370 290 C 470 240 500 390 620 380 C 730 370 700 230 810 200 C 890 175 920 220 980 140"
+                transform="translate(0, 12)"
+                stroke="url(#roadExtrudeGrad)"
+                strokeWidth="56"
+                strokeLinecap="round"
+                filter="url(#neonGlow)"
+                opacity="0.9"
+              />
+
+              {/* 3. Dark 3D Road Thickness Body */}
+              <path
+                d="M 90 620 C 180 620 220 540 290 480 C 340 435 270 340 370 290 C 470 240 500 390 620 380 C 730 370 700 230 810 200 C 890 175 920 220 980 140"
+                transform="translate(0, 6)"
+                stroke="#060c17"
+                strokeWidth="52"
+                strokeLinecap="round"
+              />
+
+              {/* 4. Top Road Asphalt Ribbon Surface */}
+              <path
+                d="M 90 620 C 180 620 220 540 290 480 C 340 435 270 340 370 290 C 470 240 500 390 620 380 C 730 370 700 230 810 200 C 890 175 920 220 980 140"
+                stroke="url(#roadSurfaceGrad)"
+                strokeWidth="48"
+                strokeLinecap="round"
+              />
+
+              {/* 5. Glowing Upper/Lower Border Trim Lines */}
+              <path
+                d="M 90 620 C 180 620 220 540 290 480 C 340 435 270 340 370 290 C 470 240 500 390 620 380 C 730 370 700 230 810 200 C 890 175 920 220 980 140"
+                stroke="#38bdf8"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="none"
+                opacity="0.8"
+                filter="url(#neonGlow)"
+              />
+
+              {/* 6. Center Dashed Lane Markers (White / Cyan) */}
+              <path
+                d="M 90 620 C 180 620 220 540 290 480 C 340 435 270 340 370 290 C 470 240 500 390 620 380 C 730 370 700 230 810 200 C 890 175 920 220 980 140"
+                stroke="#ffffff"
+                strokeWidth="2.5"
+                strokeDasharray="14 10"
+                strokeLinecap="round"
+                fill="none"
+                opacity="0.85"
+              />
+
+              {/* 7. Terminal 3D Glowing Arrowhead pointing up-right */}
+              <g transform="translate(980, 140) rotate(-42)">
+                {/* Arrow Glow */}
+                <polygon
+                  points="0,-32 54,0 0,32 10,0"
+                  fill="url(#arrowGrad)"
+                  filter="url(#neonGlow)"
+                  opacity="0.9"
+                />
+                {/* Arrow Core */}
+                <polygon
+                  points="0,-28 48,0 0,28 8,0"
+                  fill="#0d1b33"
+                  stroke="#38bdf8"
+                  strokeWidth="2.5"
+                />
+                <polygon
+                  points="6,-18 36,0 6,18 12,0"
+                  fill="url(#arrowGrad)"
+                />
+              </g>
             </svg>
 
-            {/* Nodes — 8 steps placed along the snake path */}
+            {/* 8 Milestone Waypoint Badges & Connected Content Callouts */}
             {[
-              { num: "01", label: "DISCOVER",     desc: "Understand technology and opportunity through community belonging.",        x: "6.25%",  y: 165, above: true  },
-              { num: "02", label: "LEARN",         desc: "Build practical foundations in the Emerging Tech Academy.",                 x: "18.75%", y: 285, above: false },
-              { num: "03", label: "JOIN",          desc: "Enter the right community lane based on current readiness.",               x: "31.25%", y: 165, above: true  },
-              { num: "04", label: "COLLABORATE",  desc: "Form useful multidisciplinary squads across Northern Nigeria.",             x: "43.75%", y: 285, above: false },
-              { num: "05", label: "BUILD",         desc: "Create working evidence and prototypes in BuildLab.",                      x: "56.25%", y: 165, above: true  },
-              { num: "06", label: "DEMONSTRATE",  desc: "Show verified progress publicly at demo days and showcases.",              x: "68.75%", y: 285, above: false },
-              { num: "07", label: "LAUNCH",        desc: "Move validated solutions toward pilots, users, and venture products.",     x: "81.25%", y: 165, above: true  },
-              { num: "08", label: "MENTOR",        desc: "Help the next cohort move faster and strengthen the network.",            x: "93.75%", y: 165, above: true  },
-            ].map((step, i) => {
-              const isBlue = i >= 4;
-              const borderColor = isBlue ? "#0052FF" : "#38bdf8";
-              const textColor   = isBlue ? "#93c5fd" : "#38bdf8";
-              const glowColor   = isBlue ? "rgba(0,82,255,0.4)" : "rgba(56,189,248,0.35)";
-              return (
-                <div
-                  key={i}
-                  style={{
-                    position: "absolute",
-                    left: step.x,
-                    top: `${step.y}px`,
-                    transform: "translate(-50%, -50%)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    zIndex: 10,
-                  }}
-                >
-                  {/* Label above */}
-                  {step.above && (
-                    <div style={{ marginBottom: "10px" }}>
-                      <span style={{ color: textColor, fontSize: "10px", fontFamily: "monospace", fontWeight: "bold", display: "block" }}>{step.num}</span>
-                      <span style={{ color: "white", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", display: "block" }}>{step.label}</span>
-                      <p style={{ color: "#94a3b8", fontSize: "9px", fontWeight: "300", lineHeight: "1.4", maxWidth: "90px", margin: "0 auto" }}>{step.desc}</p>
-                    </div>
-                  )}
+              {
+                num: "01",
+                label: "Market & Discovery",
+                sub: "DISCOVER",
+                desc: "Understand technology opportunities through community belonging and open exploration.",
+                icon: Compass,
+                x: 90,
+                y: 620,
+                align: "top-left",
+                calloutX: 70,
+                calloutY: 500,
+              },
+              {
+                num: "02",
+                label: "Foundational Skills",
+                sub: "LEARN",
+                desc: "Build practical, job-ready technology foundations in the Emerging Tech Academy.",
+                icon: BookOpen,
+                x: 235,
+                y: 535,
+                align: "bottom-left",
+                calloutX: 190,
+                calloutY: 625,
+              },
+              {
+                num: "03",
+                label: "High-Intent Personas",
+                sub: "JOIN",
+                desc: "Enter the right community lane matched to current readiness and domain ambition.",
+                icon: Users,
+                x: 320,
+                y: 430,
+                align: "top-left",
+                calloutX: 230,
+                calloutY: 310,
+              },
+              {
+                num: "04",
+                label: "Squad Formation",
+                sub: "COLLABORATE",
+                desc: "Form multidisciplinary builder squads across Northern Nigerian hubs.",
+                icon: Layers,
+                x: 420,
+                y: 320,
+                align: "top-center",
+                calloutX: 420,
+                calloutY: 190,
+              },
+              {
+                num: "05",
+                label: "Working Prototypes",
+                sub: "BUILD",
+                desc: "Create working evidence, software architectures, and hardware prototypes in BuildLab.",
+                icon: Cpu,
+                x: 560,
+                y: 380,
+                align: "bottom-center",
+                calloutX: 520,
+                calloutY: 480,
+              },
+              {
+                num: "06",
+                label: "Public Proof & Demo",
+                sub: "DEMONSTRATE",
+                desc: "Show verified progress publicly at demo days, partner showcases, and hackathons.",
+                icon: CheckCircle2,
+                x: 680,
+                y: 310,
+                align: "top-left",
+                calloutX: 620,
+                calloutY: 170,
+              },
+              {
+                num: "07",
+                label: "Pilots & Product Launch",
+                sub: "LAUNCH",
+                desc: "Move validated solutions toward live commercial pilots, real users, and venture products.",
+                icon: Sparkles,
+                x: 775,
+                y: 220,
+                align: "bottom-right",
+                calloutX: 780,
+                calloutY: 330,
+              },
+              {
+                num: "08",
+                label: "Ecosystem Multiplication",
+                sub: "MENTOR",
+                desc: "Help the next cohort move faster, open partner networks, and scale regional capacity.",
+                icon: ArrowRight,
+                x: 915,
+                y: 190,
+                align: "top-right",
+                calloutX: 860,
+                calloutY: 50,
+              },
+            ].map((node, idx) => {
+              const Icon = node.icon;
+              const isCyan = idx < 4;
+              const neonColor = isCyan ? "#38bdf8" : "#0052FF";
+              const glowBox = isCyan
+                ? "shadow-[0_0_30px_rgba(56,189,248,0.45)]"
+                : "shadow-[0_0_30px_rgba(0,82,255,0.55)]";
 
-                  {/* Circle node */}
-                  <div style={{ position: "relative" }}>
-                    <div style={{
-                      width: "68px", height: "68px", borderRadius: "50%",
-                      border: `2px solid ${borderColor}`,
-                      background: "black",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      boxShadow: `0 0 22px ${glowColor}`,
-                    }}>
-                      <div style={{
-                        width: "42px", height: "42px", borderRadius: "50%",
-                        background: `radial-gradient(circle, ${borderColor}22, ${borderColor}08)`,
-                        border: `1px solid ${borderColor}44`,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                      }}>
-                        <span style={{ color: textColor, fontSize: "15px", fontWeight: "900", fontFamily: "monospace" }}>{parseInt(step.num)}</span>
+              return (
+                <div key={idx}>
+                  {/* Glowing Milestone Circle on the Road */}
+                  <div
+                    className="absolute z-20 group cursor-pointer transition-transform duration-300 hover:scale-110"
+                    style={{
+                      left: `${node.x}px`,
+                      top: `${node.y}px`,
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  >
+                    {/* Outer Neon Glow Ring */}
+                    <div
+                      className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-black/90 border-2 ${
+                        isCyan ? "border-[#38bdf8]" : "border-[#0052FF]"
+                      } ${glowBox} flex items-center justify-center relative backdrop-blur-md`}
+                    >
+                      {/* Inner Ring with Gradient */}
+                      <div
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border ${
+                          isCyan
+                            ? "bg-gradient-to-br from-[#38bdf8]/30 via-black to-[#0052FF]/20 border-[#38bdf8]/50"
+                            : "bg-gradient-to-br from-[#0052FF]/40 via-black to-[#38bdf8]/30 border-[#0052FF]/60"
+                        }`}
+                      >
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
                       </div>
+
+                      {/* Number Tag Badge */}
+                      <div
+                        className="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full bg-black border border-white/20 text-[9px] font-mono font-bold text-white shadow-md"
+                      >
+                        {node.num}
+                      </div>
+
+                      {/* Animated Pulse Halo */}
+                      <div
+                        className="absolute inset-0 rounded-full border border-current opacity-40 animate-ping pointer-events-none"
+                        style={{ color: neonColor, animationDuration: "3s", animationDelay: `${idx * 0.35}s` }}
+                      />
                     </div>
-                    {/* Pulse ring */}
-                    <div style={{
-                      position: "absolute", inset: 0, borderRadius: "50%",
-                      border: `1px solid ${borderColor}25`,
-                      transform: "scale(1.35)",
-                      animation: "pulse 2s infinite",
-                      animationDelay: `${i * 0.15}s`,
-                    }} />
                   </div>
 
-                  {/* Label below */}
-                  {!step.above && (
-                    <div style={{ marginTop: "10px" }}>
-                      <span style={{ color: textColor, fontSize: "10px", fontFamily: "monospace", fontWeight: "bold", display: "block" }}>{step.num}</span>
-                      <span style={{ color: "white", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", display: "block" }}>{step.label}</span>
-                      <p style={{ color: "#94a3b8", fontSize: "9px", fontWeight: "300", lineHeight: "1.4", maxWidth: "90px", margin: "0 auto" }}>{step.desc}</p>
+                  {/* Connected Text Callout Card */}
+                  <div
+                    className="absolute z-30 max-w-[210px] p-3 rounded-2xl bg-black/80 border border-white/10 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/30 hover:bg-black/95"
+                    style={{
+                      left: `${node.calloutX}px`,
+                      top: `${node.calloutY}px`,
+                    }}
+                  >
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="text-[10px] font-mono font-bold text-[#38bdf8] uppercase tracking-wider">
+                        {node.num} · {node.sub}
+                      </span>
                     </div>
-                  )}
+                    <h4 className="text-xs font-bold text-white uppercase tracking-tight mb-1">
+                      {node.label}
+                    </h4>
+                    <p className="text-[10px] text-slate-300 font-light leading-relaxed">
+                      {node.desc}
+                    </p>
+                  </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Footer Note inside card */}
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
+              <span>Continuous Progression · Evidence-Driven Trajectory</span>
+            </div>
+            <div className="text-slate-500">
+              Northern Nigeria Tech Talent Pipeline 2026–2027
+            </div>
           </div>
         </div>
       </section>
