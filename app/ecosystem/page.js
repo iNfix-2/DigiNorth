@@ -134,7 +134,7 @@ export default function EcosystemPage() {
         </div>
       </section>
 
-      {/* 8-Step Participant Journey */}
+      {/* 8-Step Participant Journey — Connected Snake Track */}
       <section className="py-28 px-6 max-w-7xl mx-auto">
         <div className="mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
@@ -151,14 +151,113 @@ export default function EcosystemPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {pathwaySteps.map((s, idx) => (
-            <div key={idx} className="bg-black border border-white/10 p-6 rounded-2xl hover:border-white/30 transition shadow-xl">
-              <span className="text-xl font-black font-mono text-[#38bdf8] block mb-2">{s.step}</span>
-              <h3 className="text-base font-bold text-white mb-2 uppercase">{s.name}</h3>
-              <p className="text-xs text-slate-400 leading-relaxed font-light">{s.desc}</p>
-            </div>
-          ))}
+        {/* Single connected snake track — scrolls horizontally on small screens */}
+        <div className="overflow-x-auto pb-4">
+          <div style={{ minWidth: "800px", position: "relative", height: "420px" }}>
+
+            {/* One continuous SVG path through all 8 nodes */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 800 420"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              {/* Single continuous wavy dashed line connecting all 8 nodes */}
+              <path
+                d="M50 180 C100 60, 150 60, 200 180 C250 300, 300 300, 350 180 C400 60, 450 60, 500 180 C550 300, 600 300, 650 180 C700 60, 750 60, 750 180"
+                stroke="url(#snakeGrad)"
+                strokeWidth="1.5"
+                strokeDasharray="7 5"
+                opacity="0.5"
+              />
+              <defs>
+                <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#38bdf8" />
+                  <stop offset="50%" stopColor="#0052FF" />
+                  <stop offset="100%" stopColor="#38bdf8" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Nodes — 8 steps placed along the snake path */}
+            {[
+              { num: "01", label: "DISCOVER",     desc: "Understand technology and opportunity through community belonging.",        x: "6.25%",  y: 165, above: true  },
+              { num: "02", label: "LEARN",         desc: "Build practical foundations in the Emerging Tech Academy.",                 x: "18.75%", y: 285, above: false },
+              { num: "03", label: "JOIN",          desc: "Enter the right community lane based on current readiness.",               x: "31.25%", y: 165, above: true  },
+              { num: "04", label: "COLLABORATE",  desc: "Form useful multidisciplinary squads across Northern Nigeria.",             x: "43.75%", y: 285, above: false },
+              { num: "05", label: "BUILD",         desc: "Create working evidence and prototypes in BuildLab.",                      x: "56.25%", y: 165, above: true  },
+              { num: "06", label: "DEMONSTRATE",  desc: "Show verified progress publicly at demo days and showcases.",              x: "68.75%", y: 285, above: false },
+              { num: "07", label: "LAUNCH",        desc: "Move validated solutions toward pilots, users, and venture products.",     x: "81.25%", y: 165, above: true  },
+              { num: "08", label: "MENTOR",        desc: "Help the next cohort move faster and strengthen the network.",            x: "93.75%", y: 165, above: true  },
+            ].map((step, i) => {
+              const isBlue = i >= 4;
+              const borderColor = isBlue ? "#0052FF" : "#38bdf8";
+              const textColor   = isBlue ? "#93c5fd" : "#38bdf8";
+              const glowColor   = isBlue ? "rgba(0,82,255,0.4)" : "rgba(56,189,248,0.35)";
+              return (
+                <div
+                  key={i}
+                  style={{
+                    position: "absolute",
+                    left: step.x,
+                    top: `${step.y}px`,
+                    transform: "translate(-50%, -50%)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    zIndex: 10,
+                  }}
+                >
+                  {/* Label above */}
+                  {step.above && (
+                    <div style={{ marginBottom: "10px" }}>
+                      <span style={{ color: textColor, fontSize: "10px", fontFamily: "monospace", fontWeight: "bold", display: "block" }}>{step.num}</span>
+                      <span style={{ color: "white", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", display: "block" }}>{step.label}</span>
+                      <p style={{ color: "#94a3b8", fontSize: "9px", fontWeight: "300", lineHeight: "1.4", maxWidth: "90px", margin: "0 auto" }}>{step.desc}</p>
+                    </div>
+                  )}
+
+                  {/* Circle node */}
+                  <div style={{ position: "relative" }}>
+                    <div style={{
+                      width: "68px", height: "68px", borderRadius: "50%",
+                      border: `2px solid ${borderColor}`,
+                      background: "black",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      boxShadow: `0 0 22px ${glowColor}`,
+                    }}>
+                      <div style={{
+                        width: "42px", height: "42px", borderRadius: "50%",
+                        background: `radial-gradient(circle, ${borderColor}22, ${borderColor}08)`,
+                        border: `1px solid ${borderColor}44`,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <span style={{ color: textColor, fontSize: "15px", fontWeight: "900", fontFamily: "monospace" }}>{parseInt(step.num)}</span>
+                      </div>
+                    </div>
+                    {/* Pulse ring */}
+                    <div style={{
+                      position: "absolute", inset: 0, borderRadius: "50%",
+                      border: `1px solid ${borderColor}25`,
+                      transform: "scale(1.35)",
+                      animation: "pulse 2s infinite",
+                      animationDelay: `${i * 0.15}s`,
+                    }} />
+                  </div>
+
+                  {/* Label below */}
+                  {!step.above && (
+                    <div style={{ marginTop: "10px" }}>
+                      <span style={{ color: textColor, fontSize: "10px", fontFamily: "monospace", fontWeight: "bold", display: "block" }}>{step.num}</span>
+                      <span style={{ color: "white", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", display: "block" }}>{step.label}</span>
+                      <p style={{ color: "#94a3b8", fontSize: "9px", fontWeight: "300", lineHeight: "1.4", maxWidth: "90px", margin: "0 auto" }}>{step.desc}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
