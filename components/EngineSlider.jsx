@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Compass, BookOpen, Cpu, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Compass, BookOpen, Cpu, ArrowRight } from "lucide-react";
 
 export default function EngineSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -23,7 +23,6 @@ export default function EngineSlider() {
       image: "/images/engines/community.jpg",
       icon: Compass,
       accent: "#38bdf8",
-      gradient: "from-[#38bdf8]/20 via-transparent to-transparent",
     },
     {
       code: "02 · ACADEMY",
@@ -37,7 +36,6 @@ export default function EngineSlider() {
       image: "/images/engines/academy.jpg",
       icon: BookOpen,
       accent: "#60a5fa",
-      gradient: "from-[#0052FF]/25 via-transparent to-transparent",
     },
     {
       code: "03 · BUILDLAB",
@@ -51,7 +49,6 @@ export default function EngineSlider() {
       image: "/images/engines/buildlab.jpg",
       icon: Cpu,
       accent: "#a855f7",
-      gradient: "from-[#a855f7]/20 via-transparent to-transparent",
     },
   ];
 
@@ -103,7 +100,7 @@ export default function EngineSlider() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Background Images with Crossfade & Ambient Zoom */}
-      <div className="relative h-[540px] sm:h-[600px] w-full overflow-hidden">
+      <div className="relative h-[480px] sm:h-[520px] w-full overflow-hidden">
         {slides.map((slide, idx) => (
           <div
             key={idx}
@@ -122,35 +119,8 @@ export default function EngineSlider() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40 z-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent z-20" />
 
-        {/* Top Engine Navigation Tabs */}
-        <div className="absolute top-6 left-6 right-6 z-30 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {slides.map((s, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                  currentSlide === idx
-                    ? "bg-white text-black font-bold shadow-[0_0_15px_rgba(255,255,255,0.4)]"
-                    : "bg-black/60 text-white/60 border border-white/10 hover:border-white/30 hover:text-white"
-                }`}
-              >
-                <span className={`w-1.5 h-1.5 rounded-full ${currentSlide === idx ? "bg-black" : "bg-[#38bdf8]"}`} />
-                <span>{s.code}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Slide counter */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-xs font-mono text-slate-300 backdrop-blur-md">
-            <span className="text-white font-bold">0{currentSlide + 1}</span>
-            <span className="text-slate-500">/</span>
-            <span className="text-slate-500">03</span>
-          </div>
-        </div>
-
         {/* Main Content Area (Overlaying the background image) */}
-        <div className="absolute inset-0 z-30 flex flex-col justify-end p-6 sm:p-12 pb-16 sm:pb-16 max-w-4xl">
+        <div className="absolute inset-0 z-30 flex flex-col justify-end p-6 sm:p-12 pb-14 sm:pb-14 max-w-4xl">
           {slides.map((slide, idx) => {
             const Icon = slide.icon;
             if (currentSlide !== idx) return null;
@@ -173,7 +143,7 @@ export default function EngineSlider() {
                   {slide.desc}
                 </p>
 
-                {/* Action Buttons (Matching reference box style) */}
+                {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href={slide.link}
@@ -195,26 +165,8 @@ export default function EngineSlider() {
           })}
         </div>
 
-        {/* Navigation Arrows (Desktop & Mobile) */}
-        <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2">
-          <button
-            onClick={prevSlide}
-            aria-label="Previous Slide"
-            className="w-10 h-10 rounded-full bg-black/70 border border-white/15 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all backdrop-blur-md"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={nextSlide}
-            aria-label="Next Slide"
-            className="w-10 h-10 rounded-full bg-black/70 border border-white/15 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all backdrop-blur-md"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Bottom Pagination Dots (Matching reference example) */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+        {/* Bottom Pagination Dots */}
+        <div className="absolute bottom-6 left-6 sm:left-12 z-30 flex items-center gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}
@@ -222,8 +174,8 @@ export default function EngineSlider() {
               aria-label={`Go to slide ${idx + 1}`}
               className={`transition-all duration-300 rounded-full ${
                 currentSlide === idx
-                  ? "w-8 h-2 bg-[#38bdf8] shadow-[0_0_10px_#38bdf8]"
-                  : "w-2 h-2 bg-white/30 hover:bg-white/60"
+                  ? "w-8 h-1.5 bg-[#38bdf8] shadow-[0_0_10px_#38bdf8]"
+                  : "w-2 h-1.5 bg-white/30 hover:bg-white/60"
               }`}
             />
           ))}

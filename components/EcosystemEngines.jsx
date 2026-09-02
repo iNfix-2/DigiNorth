@@ -6,12 +6,7 @@ import {
   Users, 
   GraduationCap, 
   Cpu, 
-  ArrowRight, 
-  ChevronLeft, 
-  ChevronRight, 
-  Compass, 
-  BookOpen, 
-  Sparkles 
+  ArrowRight
 } from "lucide-react";
 
 export default function EcosystemEngines() {
@@ -119,7 +114,6 @@ export default function EcosystemEngines() {
   };
 
   const activeEngine = engines[currentSlide];
-  const IconComponent = activeEngine.icon;
 
   return (
     <section id="engines" className="relative py-24 sm:py-32 bg-black overflow-hidden scroll-mt-10 font-space">
@@ -146,7 +140,7 @@ export default function EcosystemEngines() {
           onTouchEnd={handleTouchEnd}
         >
           {/* Background Images with Crossfade & Slow Scale Zoom */}
-          <div className="relative min-h-[580px] sm:min-h-[520px] w-full overflow-hidden flex flex-col justify-between p-6 sm:p-10">
+          <div className="relative min-h-[520px] sm:min-h-[480px] w-full overflow-hidden flex flex-col justify-between p-6 sm:p-12">
             
             {engines.map((engine, idx) => (
               <div
@@ -165,41 +159,6 @@ export default function EcosystemEngines() {
             {/* Multi-layered Contrast Dark Gradients */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60 z-10" />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30 z-10" />
-
-            {/* Top Navigation Bar: Tabs + Counter */}
-            <div className="relative z-20 flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10">
-              
-              {/* Engine Switcher Tabs */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-                {engines.map((engine, idx) => (
-                  <button
-                    key={engine.id}
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                      currentSlide === idx
-                        ? "bg-white text-black font-bold shadow-[0_0_15px_rgba(255,255,255,0.4)] scale-105"
-                        : "bg-black/60 text-slate-300 border border-white/10 hover:border-white/30 hover:text-white"
-                    }`}
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${currentSlide === idx ? "bg-black" : "bg-[#38bdf8]"}`} />
-                    <span>{engine.code}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Right: Counter & Icon */}
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 text-xs font-mono text-slate-300 backdrop-blur-md">
-                  <span className="text-[#38bdf8] font-bold">0{currentSlide + 1}</span>
-                  <span className="text-slate-500">/</span>
-                  <span className="text-slate-500">03</span>
-                </div>
-
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-white backdrop-blur-md">
-                  <IconComponent className="w-5 h-5 text-[#38bdf8]" />
-                </div>
-              </div>
-            </div>
 
             {/* Active Engine Card Content */}
             <div className="relative z-20 my-auto py-6 max-w-3xl">
@@ -248,10 +207,8 @@ export default function EcosystemEngines() {
               </div>
             </div>
 
-            {/* Bottom Slider Controls & Progress Indicator */}
-            <div className="relative z-20 flex items-center justify-between pt-6 border-t border-white/10">
-              
-              {/* Pagination Dots / Progress Bars */}
+            {/* Bottom Slider Pagination Indicator */}
+            <div className="relative z-20 flex items-center justify-start pt-6 border-t border-white/10">
               <div className="flex items-center gap-2">
                 {engines.map((_, idx) => (
                   <button
@@ -265,24 +222,6 @@ export default function EcosystemEngines() {
                     }`}
                   />
                 ))}
-              </div>
-
-              {/* Left / Right Arrow Controls */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prevSlide}
-                  aria-label="Previous Engine"
-                  className="w-9 h-9 rounded-xl bg-black/60 border border-white/15 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all shadow-md active:scale-95"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  aria-label="Next Engine"
-                  className="w-9 h-9 rounded-xl bg-black/60 border border-white/15 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all shadow-md active:scale-95"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
             </div>
 
