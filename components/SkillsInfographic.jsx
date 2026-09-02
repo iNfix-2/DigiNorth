@@ -7,311 +7,339 @@ import {
   ShieldCheck, 
   Layers, 
   Search, 
-  Sparkles, 
-  Cpu, 
-  Users, 
+  Server, 
   ArrowRight,
-  TrendingUp,
-  Sliders,
-  CheckCircle2
+  Sparkles
 } from "lucide-react";
 
 export default function SkillsInfographic() {
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
 
-  const skills = [
+  const leftDisciplines = [
     {
       id: "se",
-      step: "01",
-      name: "Software Engineering",
-      tagline: "Systems, Web & Mobile",
-      percentage: "35%",
-      angle: 250, // Top Left
+      nodeId: 0,
+      title: "SOFTWARE ENGINEERING",
+      tagline: "CORE SYSTEMS",
       icon: Code2,
-      desc: "Build web, mobile, backend APIs, automation, and resilient platform architecture while shipping robust, verified production software.",
-      metrics: "React · Node · Python · Go · Rust",
-      deliverable: "Production MVPs & Core Protocols",
-    },
-    {
-      id: "ai",
-      step: "02",
-      name: "AI & Data Intelligence",
-      tagline: "Models & Analytics",
-      percentage: "25%",
-      angle: 310, // Top Right
-      icon: Database,
-      desc: "Explore data pipelines, localized machine learning, foundation model fine-tuning, automated agents, and responsible sovereign AI.",
-      metrics: "PyTorch · Vector DBs · Multi-Agent · SQL",
-      deliverable: "Domain LLMs & Edge Vision",
+      desc: "Build web, mobile, backend APIs, automation, and platform solutions while learning to ship reliable, verified products.",
+      accent: "#38bdf8",
     },
     {
       id: "cyber",
-      step: "03",
-      name: "Cybersecurity & Infra",
-      tagline: "Zero-Trust & Cloud",
-      percentage: "18%",
-      angle: 15, // Middle Right
+      nodeId: 2,
+      title: "CYBERSECURITY & INFRA",
+      tagline: "ZERO TRUST",
       icon: ShieldCheck,
-      desc: "Architect secure multi-cloud environments, zero-trust cryptographic identities, defensive operations, and resilient IoT edge hardware.",
-      metrics: "Kubernetes · Linux Kernel · Zero Trust · PQC",
-      deliverable: "Hardened Mesh Infrastructure",
-    },
-    {
-      id: "product",
-      step: "04",
-      name: "Product & UI/UX Design",
-      tagline: "Experience & Systems",
-      percentage: "12%",
-      angle: 120, // Bottom Right
-      icon: Layers,
-      desc: "Transform messy real-world challenges into intuitive interfaces, design systems, clickable prototypes, and validated user flows.",
-      metrics: "Figma · Design Systems · User Research",
-      deliverable: "Tested Prototypes & Flow Specs",
+      desc: "Learn secure systems, networking, cloud infrastructure, defensive security, and resilient digital operations.",
+      accent: "#60a5fa",
     },
     {
       id: "research",
-      step: "05",
-      name: "Research & Emerging Tech",
-      tagline: "Frontier & Field Studies",
-      percentage: "10%",
-      angle: 195, // Bottom Left
+      nodeId: 4,
+      title: "RESEARCH & EMERGING TECH",
+      tagline: "FIELD STUDIES",
       icon: Search,
-      desc: "Investigate regional challenges, user needs, quantum crypto resilience, and practical hardware experimentation across Northern Nigeria.",
-      metrics: "Field Studies · Feasibility · Hardware Prototyping",
-      deliverable: "Whitepapers & Field Data Sets",
+      desc: "Investigate new technologies, regional challenges, technical feasibility, and opportunities for practical experimentation.",
+      accent: "#a855f7",
     },
   ];
 
-  const current = skills[activeIdx];
-  const CurrentIcon = current.icon;
+  const rightDisciplines = [
+    {
+      id: "ai",
+      nodeId: 1,
+      title: "AI & DATA INTELLIGENCE",
+      tagline: "MODELS & ANALYTICS",
+      icon: Database,
+      desc: "Explore data pipelines, machine learning, artificial intelligence, analytics, and responsible sovereign AI applications.",
+      accent: "#38bdf8",
+    },
+    {
+      id: "product",
+      nodeId: 3,
+      title: "PRODUCT & UI/UX DESIGN",
+      tagline: "EXPERIENCE DESIGN",
+      icon: Layers,
+      desc: "Turn user needs into clear product decisions, useful interfaces, prototypes, testing plans, and stronger experiences.",
+      accent: "#60a5fa",
+    },
+    {
+      id: "cloud",
+      nodeId: 5,
+      title: "DEVOPS & CLOUD ARCHITECTURE",
+      tagline: "RELIABILITY & SCALE",
+      icon: Server,
+      desc: "Architect continuous integration, container orchestration, high-availability deployments, and edge telemetry.",
+      accent: "#a855f7",
+    },
+  ];
+
+  // Hexagon node layout positions for SVG in viewBox 0 0 400 400:
+  // Node 0: Top Left (110, 80)
+  // Node 1: Top Right (290, 80)
+  // Node 2: Mid Left (40, 200)
+  // Node 3: Mid Right (360, 200)
+  // Node 4: Bottom Left (110, 320)
+  // Node 5: Bottom Right (290, 320)
+  const hexNodes = [
+    { id: 0, x: 110, y: 80, icon: Code2, title: "Software Engineering", side: "left", cardIdx: 0 },
+    { id: 1, x: 290, y: 80, icon: Database, title: "AI & Data", side: "right", cardIdx: 0 },
+    { id: 2, x: 50, y: 200, icon: ShieldCheck, title: "Cybersecurity", side: "left", cardIdx: 1 },
+    { id: 3, x: 350, y: 200, icon: Layers, title: "Product & Design", side: "right", cardIdx: 1 },
+    { id: 4, x: 110, y: 320, icon: Search, title: "Research & Tech", side: "left", cardIdx: 2 },
+    { id: 5, x: 290, y: 320, icon: Server, title: "DevOps & Cloud", side: "right", cardIdx: 2 },
+  ];
 
   return (
-    <div className="w-full bg-black/90 border border-white/10 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden font-space">
+    <div className="w-full bg-gradient-to-b from-white/[0.03] to-black border border-white/10 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden font-space">
       
-      {/* Background Subtle Grid & Ambient Flare */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0052FF]/10 blur-[100px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#38bdf8]/10 blur-[100px] pointer-events-none rounded-full" />
+      {/* Background Ambient Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#0052FF]/10 blur-[120px] pointer-events-none rounded-full" />
 
-      {/* Top Header Infographic Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-white/10 relative z-10 mb-8 sm:mb-12">
-        <div className="flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_10px_#38bdf8]" />
-          <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] font-bold">
-            Interactive Ecosystem Matrix
-          </span>
-        </div>
-
-        {/* Top Mini Slider Indicators (Matching Reference) */}
-        <div className="flex items-center gap-6 text-xs font-mono text-slate-400">
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] uppercase text-slate-500">Cross-Disciplinary Ratio:</span>
-            <div className="flex items-center gap-1">
-              <span className="w-4 h-1 rounded-full bg-[#38bdf8]" />
-              <span className="w-3 h-1 rounded-full bg-[#60a5fa]" />
-              <span className="w-2 h-1 rounded-full bg-white/40" />
-            </div>
-          </div>
-          <span className="hidden md:inline text-white font-bold">5 Specialized Tracks</span>
-        </div>
-      </div>
-
-      {/* Main Infographic Workspace */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+      {/* Desktop & Tablet Hexagonal Hub & Spoke Layout */}
+      <div className="hidden lg:grid grid-cols-12 gap-6 items-center relative z-10">
         
-        {/* LEFT / CENTER: Circular Segmented Radar Hub (SVG & Canvas-Style Infographic) */}
-        <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
-          
-          <div className="relative w-72 sm:w-96 aspect-square flex items-center justify-center">
+        {/* LEFT COLUMN: 3 Cards */}
+        <div className="col-span-4 flex flex-col justify-between space-y-8">
+          {leftDisciplines.map((item, idx) => {
+            const isHovered = hoveredIdx === item.nodeId;
+
+            return (
+              <div
+                key={item.id}
+                onMouseEnter={() => setHoveredIdx(item.nodeId)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                className={`relative group p-6 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                  isHovered
+                    ? "bg-white/[0.08] border-[#38bdf8] shadow-[0_0_25px_rgba(56,189,248,0.25)] -translate-x-1"
+                    : "bg-black/60 border-white/10 hover:border-white/30"
+                }`}
+              >
+                {/* Connecting horizontal line to the right */}
+                <div
+                  className={`hidden lg:block absolute -right-6 top-1/2 w-6 h-[1.5px] transition-colors duration-300 ${
+                    isHovered ? "bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" : "bg-white/20"
+                  }`}
+                />
+                <div
+                  className={`hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors duration-300 ${
+                    isHovered ? "bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" : "bg-white/40"
+                  }`}
+                />
+
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#38bdf8] block mb-1 font-semibold">
+                  {item.tagline}
+                </span>
+                <h3 className="text-base font-bold text-white uppercase tracking-tight mb-2 group-hover:text-[#38bdf8] transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  {item.desc}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* CENTER COLUMN: Hexagonal Network Diagram (SVG Hub) */}
+        <div className="col-span-4 flex items-center justify-center relative">
+          <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
             
-            {/* Concentric Outer Thin Rings (Matching Reference) */}
-            <div className="absolute inset-0 rounded-full border border-white/15 animate-[spin_60s_linear_infinite]" />
-            <div className="absolute inset-4 rounded-full border border-dashed border-white/20" />
-            <div className="absolute inset-10 rounded-full border border-white/10" />
+            {/* SVG Connecting Hexagon Mesh Lines */}
+            <svg className="w-full h-full absolute inset-0 pointer-events-none" viewBox="0 0 400 400">
+              {/* Central Hexagon Perimeter Lines */}
+              <polygon
+                points="110,80 290,80 350,200 290,320 110,320 50,200"
+                fill="rgba(0, 82, 255, 0.05)"
+                stroke="rgba(255, 255, 255, 0.2)"
+                strokeWidth="2"
+              />
 
-            {/* SVG Interactive Pie / Wedge Slices */}
-            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
-              {skills.map((skill, idx) => {
-                // Approximate 5 arc segments
-                const sliceDegree = 360 / skills.length;
-                const startAngle = idx * sliceDegree;
-                const endAngle = (idx + 1) * sliceDegree - 4; // gap
-                
-                const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
-                  const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
-                  return {
-                    x: centerX + radius * Math.cos(angleInRadians),
-                    y: centerY + radius * Math.sin(angleInRadians),
-                  };
-                };
+              {/* Cross Interconnect Lattice Lines */}
+              <line x1="110" y1="80" x2="290" y2="320" stroke="rgba(255, 255, 255, 0.08)" strokeDasharray="3,3" />
+              <line x1="290" y1="80" x2="110" y2="320" stroke="rgba(255, 255, 255, 0.08)" strokeDasharray="3,3" />
+              <line x1="50" y1="200" x2="350" y2="200" stroke="rgba(255, 255, 255, 0.08)" strokeDasharray="3,3" />
 
-                const describeArc = (x, y, radius, innerRadius, startAngle, endAngle) => {
-                  const start = polarToCartesian(x, y, radius, endAngle);
-                  const end = polarToCartesian(x, y, radius, startAngle);
-                  const innerStart = polarToCartesian(x, y, innerRadius, endAngle);
-                  const innerEnd = polarToCartesian(x, y, innerRadius, startAngle);
-                  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-
-                  return [
-                    "M", start.x, start.y,
-                    "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y,
-                    "L", innerEnd.x, innerEnd.y,
-                    "A", innerRadius, innerRadius, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
-                    "Z"
-                  ].join(" ");
-                };
-
-                const isSelected = activeIdx === idx;
-
-                return (
-                  <path
-                    key={skill.id}
-                    d={describeArc(100, 100, isSelected ? 92 : 86, 52, startAngle, endAngle)}
-                    fill={isSelected ? "rgba(56, 189, 248, 0.3)" : "rgba(255, 255, 255, 0.04)"}
-                    stroke={isSelected ? "#38bdf8" : "rgba(255, 255, 255, 0.2)"}
-                    strokeWidth={isSelected ? "2" : "1"}
-                    className="cursor-pointer transition-all duration-300 hover:fill-[#38bdf8]/40"
-                    onClick={() => setActiveIdx(idx)}
-                  />
-                );
-              })}
+              {/* Active Highlight Line around Polygon */}
+              {hoveredIdx !== null && (
+                <circle
+                  cx={hexNodes[hoveredIdx].x}
+                  cy={hexNodes[hoveredIdx].y}
+                  r="34"
+                  fill="none"
+                  stroke="#38bdf8"
+                  strokeWidth="2"
+                  className="animate-pulse"
+                />
+              )}
             </svg>
 
-            {/* Inner Center Hub Nucleus with Graph Icon */}
-            <div className="absolute w-28 sm:w-36 aspect-square rounded-full bg-gradient-to-tr from-black via-slate-900 to-black border border-white/25 shadow-2xl flex flex-col items-center justify-center text-center p-2 z-20">
-              <CurrentIcon className="w-6 h-6 text-[#38bdf8] mb-1 animate-pulse" />
-              <span className="text-xl sm:text-2xl font-black text-white font-mono leading-none">
-                {current.percentage}
+            {/* Center Core Hub Title Box */}
+            <div className="text-center px-4 py-3 rounded-2xl bg-black/80 border border-white/20 backdrop-blur-md max-w-[150px] shadow-2xl z-10">
+              <span className="text-[9px] font-mono text-[#38bdf8] uppercase tracking-widest block font-bold mb-1">
+                CONNECTED
               </span>
-              <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-1">
-                {current.step} / 05
-              </span>
+              <h4 className="text-xs font-black text-white uppercase tracking-tight leading-tight">
+                SHARED WORK MATRIX
+              </h4>
             </div>
 
-            {/* Radial Interactive Node Pins (Clickable Dots) */}
-            {skills.map((skill, idx) => {
-              const angles = [45, 115, 190, 260, 330];
-              const angleRad = (angles[idx] * Math.PI) / 180;
-              const radius = 135; // Position outside ring
-              const isSelected = activeIdx === idx;
+            {/* 6 Circular Nodes */}
+            {hexNodes.map((node) => {
+              const NodeIcon = node.icon;
+              const isHovered = hoveredIdx === node.id;
+
+              return (
+                <div
+                  key={node.id}
+                  onMouseEnter={() => setHoveredIdx(node.id)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  style={{
+                    position: "absolute",
+                    left: `${(node.x / 400) * 100}%`,
+                    top: `${(node.y / 400) * 100}%`,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                  className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 z-20 ${
+                    isHovered
+                      ? "bg-white text-black border-2 border-[#38bdf8] shadow-[0_0_25px_#38bdf8] scale-110"
+                      : "bg-gradient-to-b from-slate-800 to-black text-white border border-white/30 hover:border-white hover:scale-105 shadow-xl"
+                  }`}
+                  title={node.title}
+                >
+                  <NodeIcon className={`w-6 h-6 ${isHovered ? "text-black" : "text-[#38bdf8]"}`} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN: 3 Cards */}
+        <div className="col-span-4 flex flex-col justify-between space-y-8">
+          {rightDisciplines.map((item, idx) => {
+            const isHovered = hoveredIdx === item.nodeId;
+
+            return (
+              <div
+                key={item.id}
+                onMouseEnter={() => setHoveredIdx(item.nodeId)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                className={`relative group p-6 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                  isHovered
+                    ? "bg-white/[0.08] border-[#38bdf8] shadow-[0_0_25px_rgba(56,189,248,0.25)] translate-x-1"
+                    : "bg-black/60 border-white/10 hover:border-white/30"
+                }`}
+              >
+                {/* Connecting horizontal line to the left */}
+                <div
+                  className={`hidden lg:block absolute -left-6 top-1/2 w-6 h-[1.5px] transition-colors duration-300 ${
+                    isHovered ? "bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" : "bg-white/20"
+                  }`}
+                />
+                <div
+                  className={`hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-colors duration-300 ${
+                    isHovered ? "bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]" : "bg-white/40"
+                  }`}
+                />
+
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#38bdf8] block mb-1 font-semibold">
+                  {item.tagline}
+                </span>
+                <h3 className="text-base font-bold text-white uppercase tracking-tight mb-2 group-hover:text-[#38bdf8] transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  {item.desc}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+
+      {/* Mobile & Tablet Responsive Layout (Hexagon Hub + Responsive Cards Grid) */}
+      <div className="lg:hidden flex flex-col gap-8">
+        
+        {/* Compact Mobile Hexagon Node Wheel */}
+        <div className="flex items-center justify-center py-4">
+          <div className="relative w-64 h-64 flex items-center justify-center">
+            
+            <svg className="w-full h-full absolute inset-0 pointer-events-none" viewBox="0 0 400 400">
+              <polygon
+                points="110,80 290,80 350,200 290,320 110,320 50,200"
+                fill="rgba(0, 82, 255, 0.08)"
+                stroke="rgba(255, 255, 255, 0.25)"
+                strokeWidth="2"
+              />
+            </svg>
+
+            {/* Mobile Center Pill */}
+            <div className="text-center px-3 py-2 rounded-xl bg-black/80 border border-white/20 z-10">
+              <span className="text-[8px] font-mono text-[#38bdf8] font-bold uppercase block">MATRIX</span>
+              <span className="text-[10px] font-black text-white uppercase">6 DISCIPLINES</span>
+            </div>
+
+            {/* 6 Mobile Circular Nodes */}
+            {hexNodes.map((node) => {
+              const NodeIcon = node.icon;
+              const isHovered = hoveredIdx === node.id;
 
               return (
                 <button
-                  key={skill.id}
-                  onClick={() => setActiveIdx(idx)}
-                  className={`absolute w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 z-30 cursor-pointer ${
-                    isSelected
-                      ? "bg-[#38bdf8] text-black border-white shadow-[0_0_15px_#38bdf8] scale-125"
-                      : "bg-black/90 text-slate-300 border-white/30 hover:border-white hover:scale-110"
-                  }`}
+                  key={node.id}
+                  onClick={() => setHoveredIdx(hoveredIdx === node.id ? null : node.id)}
                   style={{
-                    transform: `translate(${Math.cos(angleRad) * radius}px, ${Math.sin(angleRad) * radius}px)`,
+                    position: "absolute",
+                    left: `${(node.x / 400) * 100}%`,
+                    top: `${(node.y / 400) * 100}%`,
+                    transform: "translate(-50%, -50%)",
                   }}
-                  title={skill.name}
+                  className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
+                    isHovered
+                      ? "bg-white text-black border-2 border-[#38bdf8] shadow-[0_0_20px_#38bdf8] scale-110"
+                      : "bg-slate-900 text-white border border-white/30"
+                  }`}
                 >
-                  <span className="text-[10px] font-mono font-bold">{skill.step}</span>
+                  <NodeIcon className={`w-4 h-4 ${isHovered ? "text-black" : "text-[#38bdf8]"}`} />
                 </button>
               );
             })}
           </div>
-
-          {/* Bottom Quick Switcher Pills for Mobile/Tablet */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mt-8 max-w-sm">
-            {skills.map((skill, idx) => (
-              <button
-                key={skill.id}
-                onClick={() => setActiveIdx(idx)}
-                className={`px-3 py-1 rounded-lg text-[10px] font-mono uppercase tracking-wider transition-all ${
-                  activeIdx === idx
-                    ? "bg-[#38bdf8] text-black font-bold shadow-md"
-                    : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {skill.step} · {skill.name.split(" ")[0]}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* RIGHT: Active Selected Discipline Infographic Card (With Technical Details) */}
-        <div className="lg:col-span-6 flex flex-col gap-6">
-          
-          <div className="bg-gradient-to-b from-white/[0.05] to-black border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
-            
-            {/* Top Tag & Step Number */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0052FF]/20 border border-[#0052FF]/40 text-xs font-mono text-[#38bdf8] font-bold uppercase">
-                <CurrentIcon className="w-3.5 h-3.5" />
-                <span>STEP {current.step} · {current.tagline}</span>
-              </div>
+        {/* Mobile Disciplines Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[...leftDisciplines, ...rightDisciplines].map((item) => {
+            const Icon = item.icon;
+            const isHovered = hoveredIdx === item.nodeId;
 
-              <div className="text-right">
-                <span className="text-2xl font-black text-white font-mono">{current.percentage}</span>
-                <span className="text-[10px] font-mono text-slate-500 uppercase block">Talent Share</span>
-              </div>
-            </div>
-
-            {/* Discipline Headline */}
-            <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-4 leading-snug">
-              {current.name}
-            </h3>
-
-            {/* In-depth Description */}
-            <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-6">
-              {current.desc}
-            </p>
-
-            {/* Metrics & Deliverable Spec Box */}
-            <div className="space-y-3 pt-6 border-t border-white/10 mb-8">
-              <div className="flex items-start gap-3 text-xs font-mono">
-                <span className="text-slate-500 shrink-0 uppercase">Core Stack:</span>
-                <span className="text-[#93c5fd] font-medium">{current.metrics}</span>
-              </div>
-              <div className="flex items-start gap-3 text-xs font-mono">
-                <span className="text-slate-500 shrink-0 uppercase">Output Focus:</span>
-                <span className="text-white font-medium">{current.deliverable}</span>
-              </div>
-            </div>
-
-            {/* Action CTA */}
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#join-community"
-                className="button-enchanced is-primary !py-3 !px-7 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2"
+            return (
+              <div
+                key={item.id}
+                onClick={() => setHoveredIdx(hoveredIdx === item.nodeId ? null : item.nodeId)}
+                className={`p-5 rounded-2xl border transition-all ${
+                  isHovered
+                    ? "bg-white/[0.08] border-[#38bdf8] shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+                    : "bg-black/60 border-white/10"
+                }`}
               >
-                <span>Join {current.name} Track</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <button
-                onClick={() => setActiveIdx((prev) => (prev + 1) % skills.length)}
-                className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 text-xs font-mono text-slate-300 hover:text-white transition-colors uppercase"
-              >
-                Next Discipline →
-              </button>
-            </div>
-          </div>
-
-          {/* Bottom Infographic Team Composition Legend */}
-          <div className="bg-black/60 border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-1.5">
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <div key={item} className="w-6 h-6 rounded-full bg-slate-800 border border-white/20 flex items-center justify-center">
-                    <Users className="w-3 h-3 text-[#38bdf8]" />
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-[#38bdf8]">
+                    <Icon className="w-4 h-4" />
                   </div>
-                ))}
+                  <div>
+                    <span className="text-[9px] font-mono text-[#38bdf8] uppercase block font-semibold">{item.tagline}</span>
+                    <h3 className="text-sm font-bold text-white uppercase">{item.title}</h3>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-300 font-light leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-              <div>
-                <span className="text-xs font-bold text-white uppercase block">Multidisciplinary Squads</span>
-                <span className="text-[10px] font-mono text-slate-400">Teams combine engineers, designers & researchers</span>
-              </div>
-            </div>
-
-            <span className="text-[11px] font-mono text-[#38bdf8] bg-[#0052FF]/20 px-2.5 py-1 rounded-lg border border-[#0052FF]/30 w-fit">
-              100% Collaborative
-            </span>
-          </div>
-
+            );
+          })}
         </div>
 
       </div>
