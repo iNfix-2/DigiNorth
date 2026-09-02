@@ -1,15 +1,32 @@
 "use client";
 
-import React from "react";
-import { Users, GraduationCap, Cpu, ArrowRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { 
+  Users, 
+  GraduationCap, 
+  Cpu, 
+  ArrowRight, 
+  ChevronLeft, 
+  ChevronRight, 
+  Compass, 
+  BookOpen, 
+  Sparkles 
+} from "lucide-react";
 
 export default function EcosystemEngines() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const engines = [
     {
       id: "community",
+      code: "01 · COMMUNITY",
       icon: Users,
-      title: "Find Your People",
-      tagline: "Discover & Connect",
+      title: "FIND YOUR PEOPLE",
+      tagline: "DISCOVER & CONNECT",
       description:
         "Meet builders, share knowledge, discover opportunities, form multidisciplinary teams, and contribute at the level you are ready for.",
       features: [
@@ -18,14 +35,17 @@ export default function EcosystemEngines() {
         "Discord & Local Kaduna Guild Channels",
         "Open-source Mentorship Networks",
       ],
-      ctaText: "Enter Community",
-      ctaLink: "#join-community",
+      ctaText: "ENTER COMMUNITY",
+      ctaLink: "/community",
+      image: "/images/engines/community.jpg",
+      accent: "#38bdf8",
     },
     {
       id: "academy",
+      code: "02 · ACADEMY",
       icon: GraduationCap,
-      title: "Learn to Build",
-      tagline: "Learn & Practise",
+      title: "LEARN TO BUILD",
+      tagline: "LEARN & PRACTISE",
       description:
         "Develop practical technology skills through project-based learning, consistent code reviews, industry feedback, and building in public.",
       features: [
@@ -34,14 +54,17 @@ export default function EcosystemEngines() {
         "Full-stack WebGL, Web3 & Mobile Tracks",
         "Evidence-based Portfolio Development",
       ],
-      ctaText: "Enter Academy",
-      ctaLink: "#join-community",
+      ctaText: "ENTER ACADEMY",
+      ctaLink: "/academy",
+      image: "/images/engines/academy.jpg",
+      accent: "#60a5fa",
     },
     {
       id: "buildlab",
+      code: "03 · BUILDLAB",
       icon: Cpu,
-      title: "Build What Matters",
-      tagline: "Build & Launch",
+      title: "BUILD WHAT MATTERS",
+      tagline: "BUILD & LAUNCH",
       description:
         "Research real regional challenges in Northern Nigeria, validate assumptions, develop functional prototypes, and launch viable tech ventures.",
       features: [
@@ -50,16 +73,60 @@ export default function EcosystemEngines() {
         "Access to Founder Mentors & Angel Capital",
         "October 'Build for the North' Hackathon",
       ],
-      ctaText: "Enter BuildLab",
-      ctaLink: "#join-community",
+      ctaText: "ENTER BUILDLAB",
+      ctaLink: "/buildlab",
+      image: "/images/engines/buildlab.jpg",
+      accent: "#a855f7",
     },
   ];
 
+  // Auto-play timer (6 seconds)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % engines.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isPaused, engines.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % engines.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + engines.length) % engines.length);
+  };
+
+  // Touch swipe handlers
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > 50) {
+      nextSlide();
+    } else if (distance < -50) {
+      prevSlide();
+    }
+    setTouchStartX(0);
+    setTouchEndX(0);
+  };
+
+  const activeEngine = engines[currentSlide];
+  const IconComponent = activeEngine.icon;
+
   return (
-    <section id="engines" className="relative py-24 sm:py-32 bg-black overflow-hidden scroll-mt-10 border-t border-white/10 font-space">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section Heading (Clean layout without badge pill) */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+    <section id="engines" className="relative py-24 sm:py-32 bg-black overflow-hidden scroll-mt-10 font-space">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 sm:mb-6 uppercase leading-tight">
             Three Engines. <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_30px_rgba(0,82,255,0.35)]">One Progression Pathway.</span>
           </h2>
@@ -69,60 +136,159 @@ export default function EcosystemEngines() {
           </p>
         </div>
 
-        {/* Engine Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {engines.map((engine) => {
-            const IconComponent = engine.icon;
-            return (
+        {/* Interactive Slider Container */}
+        <div
+          className="relative w-full rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-black"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Background Images with Crossfade & Slow Scale Zoom */}
+          <div className="relative min-h-[580px] sm:min-h-[520px] w-full overflow-hidden flex flex-col justify-between p-6 sm:p-10">
+            
+            {engines.map((engine, idx) => (
               <div
                 key={engine.id}
-                id={engine.id}
-                className="group relative bg-black rounded-3xl p-8 border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-white/30 shadow-2xl flex flex-col justify-between"
-              >
-                <div>
-                  {/* Top Icon (Clean without Engine 01 badge) */}
-                  <div className="flex items-center justify-end mb-6">
-                    <div className="p-3 rounded-2xl bg-white/5 text-white border border-white/10 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-5 h-5 text-slate-200" />
-                    </div>
-                  </div>
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  currentSlide === idx ? "opacity-100 z-0 scale-105" : "opacity-0 -z-10 scale-100"
+                } transition-transform duration-10000 ease-out`}
+                style={{
+                  backgroundImage: `url(${engine.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+            ))}
 
-                  {/* Tagline & Title */}
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-medium">
-                    {engine.tagline}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 tracking-tight uppercase">
-                    {engine.title}
-                  </h3>
+            {/* Multi-layered Contrast Dark Gradients */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30 z-10" />
 
-                  {/* Description */}
-                  <p className="text-slate-300 text-sm leading-relaxed mb-8 font-light">
-                    {engine.description}
-                  </p>
+            {/* Top Navigation Bar: Tabs + Counter */}
+            <div className="relative z-20 flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10">
+              
+              {/* Engine Switcher Tabs */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                {engines.map((engine, idx) => (
+                  <button
+                    key={engine.id}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                      currentSlide === idx
+                        ? "bg-white text-black font-bold shadow-[0_0_15px_rgba(255,255,255,0.4)] scale-105"
+                        : "bg-black/60 text-slate-300 border border-white/10 hover:border-white/30 hover:text-white"
+                    }`}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full ${currentSlide === idx ? "bg-black" : "bg-[#38bdf8]"}`} />
+                    <span>{engine.code}</span>
+                  </button>
+                ))}
+              </div>
 
-                  {/* Features List */}
-                  <div className="space-y-3 mb-8 pt-4 border-t border-white/10">
-                    {engine.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3 text-xs text-slate-300">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] shrink-0" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Right: Counter & Icon */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 text-xs font-mono text-slate-300 backdrop-blur-md">
+                  <span className="text-[#38bdf8] font-bold">0{currentSlide + 1}</span>
+                  <span className="text-slate-500">/</span>
+                  <span className="text-slate-500">03</span>
                 </div>
 
-                {/* Card CTA */}
-                <a
-                  href={engine.ctaLink}
-                  className="button-enchanced is-primary w-full text-center text-xs font-bold uppercase tracking-wider"
-                >
-                  <span>{engine.ctaText}</span>
-                  <ArrowRight className="ml-2 h-4 w-4 inline" />
-                </a>
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-white backdrop-blur-md">
+                  <IconComponent className="w-5 h-5 text-[#38bdf8]" />
+                </div>
               </div>
-            );
-          })}
+            </div>
+
+            {/* Active Engine Card Content */}
+            <div className="relative z-20 my-auto py-6 max-w-3xl">
+              
+              {/* Tagline */}
+              <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-bold">
+                {activeEngine.tagline}
+              </span>
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-4xl font-black text-white mb-4 tracking-tight uppercase leading-tight">
+                {activeEngine.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-light max-w-2xl">
+                {activeEngine.description}
+              </p>
+
+              {/* Bullet Features Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 pt-4 border-t border-white/10 max-w-2xl">
+                {activeEngine.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-300">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_8px_#38bdf8]" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Primary Action Link */}
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href={activeEngine.ctaLink}
+                  className="button-enchanced is-primary !py-3 !px-8 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2"
+                >
+                  <span>{activeEngine.ctaText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="/ecosystem"
+                  className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 text-xs font-mono uppercase text-slate-300 hover:text-white transition-colors"
+                >
+                  View Full Ecosystem
+                </Link>
+              </div>
+            </div>
+
+            {/* Bottom Slider Controls & Progress Indicator */}
+            <div className="relative z-20 flex items-center justify-between pt-6 border-t border-white/10">
+              
+              {/* Pagination Dots / Progress Bars */}
+              <div className="flex items-center gap-2">
+                {engines.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      currentSlide === idx
+                        ? "w-10 bg-[#38bdf8] shadow-[0_0_10px_rgba(56,189,248,0.6)]"
+                        : "w-3 bg-white/20 hover:bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Left / Right Arrow Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  aria-label="Previous Engine"
+                  className="w-9 h-9 rounded-xl bg-black/60 border border-white/15 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all shadow-md active:scale-95"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  aria-label="Next Engine"
+                  className="w-9 h-9 rounded-xl bg-black/60 border border-white/15 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all shadow-md active:scale-95"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
   );
