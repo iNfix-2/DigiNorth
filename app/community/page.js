@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import SkillsInfographic from "@/components/SkillsInfographic";
 import { ArrowRight, Users, Sparkles, Calendar, Code, Database, Shield, Layers, Search } from "lucide-react";
 
 export default function CommunityPage() {
@@ -180,33 +181,21 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* Disciplines */}
-      <section className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10">
-        <div className="mb-16">
+      {/* Disciplines Infographic Matrix */}
+      <section className="py-28 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
+        <div className="mb-12">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
             Disciplines
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white uppercase">
+          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
             Different Skills, <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF]">Shared Work.</span>
           </h2>
+          <p className="text-slate-400 text-sm font-light mt-3 max-w-2xl leading-relaxed">
+            Multidisciplinary teams where software engineers, data scientists, security architects, product designers, and field researchers collaborate on unified technical solutions.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {disciplines.map((d, idx) => {
-            const Icon = d.icon;
-            return (
-              <div key={idx} className="bg-black border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between">
-                <div>
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-[#38bdf8] w-fit mb-6">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 uppercase">{d.name}</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">{d.desc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <SkillsInfographic />
       </section>
 
       {/* Upcoming Events */}
