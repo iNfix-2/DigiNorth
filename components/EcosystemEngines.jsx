@@ -116,11 +116,11 @@ export default function EcosystemEngines() {
   const activeEngine = engines[currentSlide];
 
   return (
-    <section id="engines" className="relative py-24 sm:py-32 bg-black overflow-hidden scroll-mt-10 font-space">
+    <section id="engines" className="relative pt-20 pb-16 sm:pt-28 sm:pb-20 bg-black overflow-hidden scroll-mt-10 font-space">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 sm:mb-6 uppercase leading-tight">
             Three Engines. <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_30px_rgba(0,82,255,0.35)]">One Progression Pathway.</span>
           </h2>
@@ -130,7 +130,7 @@ export default function EcosystemEngines() {
           </p>
         </div>
 
-        {/* Interactive Slider Container */}
+        {/* Extended Height Slider Container */}
         <div
           className="relative w-full rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-black"
           onMouseEnter={() => setIsPaused(true)}
@@ -139,8 +139,8 @@ export default function EcosystemEngines() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Background Images with Crossfade & Slow Scale Zoom */}
-          <div className="relative min-h-[520px] sm:min-h-[480px] w-full overflow-hidden flex flex-col justify-between p-6 sm:p-12">
+          {/* Background Images with Crossfade & Generous Extended Height */}
+          <div className="relative min-h-[660px] sm:min-h-[640px] md:min-h-[680px] w-full overflow-hidden flex flex-col justify-between p-6 sm:p-14">
             
             {engines.map((engine, idx) => (
               <div
@@ -161,28 +161,28 @@ export default function EcosystemEngines() {
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30 z-10" />
 
             {/* Active Engine Card Content */}
-            <div className="relative z-20 my-auto py-6 max-w-3xl">
+            <div className="relative z-20 my-auto py-8 max-w-3xl">
               
               {/* Tagline */}
-              <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-bold">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-bold">
                 {activeEngine.tagline}
               </span>
 
               {/* Title */}
-              <h3 className="text-2xl sm:text-4xl font-black text-white mb-4 tracking-tight uppercase leading-tight">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-5 tracking-tight uppercase leading-tight">
                 {activeEngine.title}
               </h3>
 
               {/* Description */}
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-light max-w-2xl">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 font-light max-w-2xl">
                 {activeEngine.description}
               </p>
 
               {/* Bullet Features Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 pt-4 border-t border-white/10 max-w-2xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 pt-6 border-t border-white/10 max-w-2xl">
                 {activeEngine.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-300">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_8px_#38bdf8]" />
+                  <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
+                    <div className="w-2 h-2 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_8px_#38bdf8]" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -192,7 +192,7 @@ export default function EcosystemEngines() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href={activeEngine.ctaLink}
-                  className="button-enchanced is-primary !py-3 !px-8 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2"
+                  className="button-enchanced is-primary !py-3.5 !px-8 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2"
                 >
                   <span>{activeEngine.ctaText}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -200,7 +200,7 @@ export default function EcosystemEngines() {
 
                 <Link
                   href="/ecosystem"
-                  className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 text-xs font-mono uppercase text-slate-300 hover:text-white transition-colors"
+                  className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 text-xs font-mono uppercase text-slate-300 hover:text-white transition-colors"
                 >
                   View Full Ecosystem
                 </Link>

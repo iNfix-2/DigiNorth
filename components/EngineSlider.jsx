@@ -99,8 +99,8 @@ export default function EngineSlider() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Background Images with Crossfade & Ambient Zoom */}
-      <div className="relative h-[480px] sm:h-[520px] w-full overflow-hidden">
+      {/* Background Images with Crossfade & Generous Extended Height */}
+      <div className="relative min-h-[640px] sm:min-h-[620px] md:min-h-[660px] w-full overflow-hidden">
         {slides.map((slide, idx) => (
           <div
             key={idx}
@@ -116,11 +116,11 @@ export default function EngineSlider() {
         ))}
 
         {/* Multi-layered cinematic contrast gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40 z-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent z-20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/50 z-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent z-20" />
 
-        {/* Main Content Area (Overlaying the background image) */}
-        <div className="absolute inset-0 z-30 flex flex-col justify-end p-6 sm:p-12 pb-14 sm:pb-14 max-w-4xl">
+        {/* Main Content Area */}
+        <div className="absolute inset-0 z-30 flex flex-col justify-end p-6 sm:p-14 pb-16 sm:pb-16 max-w-4xl">
           {slides.map((slide, idx) => {
             const Icon = slide.icon;
             if (currentSlide !== idx) return null;
@@ -128,13 +128,13 @@ export default function EngineSlider() {
             return (
               <div key={idx} className="animate-in fade-in slide-in-from-bottom-6 duration-500">
                 {/* Engine Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-4 backdrop-blur-md">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-mono uppercase tracking-widest text-[#38bdf8] mb-5 backdrop-blur-md">
                   <Icon className="w-3.5 h-3.5" />
                   <span>{slide.engineName}</span>
                 </div>
 
                 {/* Main Headline */}
-                <h3 className="text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight sm:leading-tight mb-4 drop-shadow-lg">
+                <h3 className="text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight sm:leading-tight mb-5 drop-shadow-lg">
                   {slide.title}
                 </h3>
 
@@ -166,7 +166,7 @@ export default function EngineSlider() {
         </div>
 
         {/* Bottom Pagination Dots */}
-        <div className="absolute bottom-6 left-6 sm:left-12 z-30 flex items-center gap-2">
+        <div className="absolute bottom-6 left-6 sm:left-14 z-30 flex items-center gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}
@@ -174,8 +174,8 @@ export default function EngineSlider() {
               aria-label={`Go to slide ${idx + 1}`}
               className={`transition-all duration-300 rounded-full ${
                 currentSlide === idx
-                  ? "w-8 h-1.5 bg-[#38bdf8] shadow-[0_0_10px_#38bdf8]"
-                  : "w-2 h-1.5 bg-white/30 hover:bg-white/60"
+                  ? "w-10 h-1.5 bg-[#38bdf8] shadow-[0_0_10px_#38bdf8]"
+                  : "w-2.5 h-1.5 bg-white/30 hover:bg-white/60"
               }`}
             />
           ))}
