@@ -262,18 +262,18 @@ export default function EcosystemHero() {
       {/* Main Hero Typography & Call-To-Action */}
       <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center max-w-4xl mx-auto py-12">
         {/* Massive Headline */}
-        <h1 className="heading-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95]">
+        <h1 className="heading-hero text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase leading-[0.98]">
           <span className="block text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
-            <ScrambleText text="DIGINORTH" speed={30} />
+            <ScrambleText text="NORTHERN NIGERIA'S" speed={25} />
           </span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-[#93c5fd] to-[#0052FF] drop-shadow-[0_0_35px_rgba(0,82,255,0.5)] mt-2">
-            <ScrambleText text="INNOVATION REGION" speed={25} delay={150} />
+            <ScrambleText text="TECHNOLOGY ECOSYSTEM." speed={20} delay={150} />
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg md:text-xl font-light text-slate-300 leading-relaxed px-4">
-          Building the environment from which Northern Nigeria's next generation of technology builders, products, and companies can emerge.
+        <p className="mt-6 sm:mt-8 max-w-3xl text-sm sm:text-base md:text-lg font-light text-slate-300 leading-relaxed px-4">
+          DigiNorth connects people to community, practical learning, multidisciplinary teams, real projects, mentors, and opportunities—so talent can move from curiosity to useful technology.
         </p>
 
         {/* Action Buttons */}
