@@ -44,7 +44,7 @@ export default function ProgressionPathway() {
   ];
 
   return (
-    <section id="pathway" className="py-24 sm:py-36 bg-black relative scroll-mt-10 border-t border-white/10 font-space overflow-hidden">
+    <section id="pathway" className="py-24 sm:py-36 bg-black relative scroll-mt-10 font-space overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0052FF]/5 rounded-full blur-[140px] pointer-events-none" />
 

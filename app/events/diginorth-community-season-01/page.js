@@ -62,7 +62,7 @@ export default function CommunitySeason01Page() {
       </section>
 
       {/* Details Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-4 sm:px-6">
+      <section className="bg-white/[0.02] py-8 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1 font-bold">Timing</span>

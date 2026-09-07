@@ -107,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       {/* Purpose Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-6">
+      <section className="bg-white/[0.02] py-8 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Community</span>
@@ -158,7 +158,7 @@ export default function AboutPage() {
       </section>
 
       {/* Executive Direction (Shaping DigiNorth's Direction) */}
-      <section className="py-24 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-10 sm:mb-12">
             <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
@@ -210,7 +210,7 @@ export default function AboutPage() {
       </section>
 
       {/* Operational Pathways Leadership Team */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#38bdf8] text-xs font-mono uppercase tracking-widest mb-4">
@@ -357,7 +357,7 @@ export default function AboutPage() {
       </section>
 
       {/* Powering Partners with Real Official Logos */}
-      <section className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-28 px-6 max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
             Technology and Strategic Support
@@ -423,7 +423,7 @@ export default function AboutPage() {
       </section>
 
       {/* Conviction CTA */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.02]">
+      <section className="py-24 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
             The Conviction

@@ -78,7 +78,7 @@ export default function InsightsPage() {
       <Navbar />
 
       {/* GovCIO-style Top Breadcrumb & Page Heading */}
-      <section className="pt-32 pb-6 px-4 sm:px-6 max-w-7xl mx-auto border-b border-white/10">
+      <section className="pt-32 pb-6 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-1 font-semibold">
@@ -352,7 +352,7 @@ export default function InsightsPage() {
       </section>
 
       {/* GovCIO-style "LATEST" Sector Wire Grid */}
-      <section className="py-14 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-14 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
             <span className="px-2.5 py-1 rounded bg-white text-black text-xs font-mono font-bold uppercase tracking-wider">
@@ -428,7 +428,7 @@ export default function InsightsPage() {
       </section>
 
       {/* Bottom Newsletter & Submission Section */}
-      <section className="py-24 px-6 bg-white/[0.02] border-t border-white/10">
+      <section className="py-24 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
             Intelligence Dispatch

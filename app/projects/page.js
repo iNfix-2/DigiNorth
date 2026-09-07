@@ -79,7 +79,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Catalogue Principles */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-6">
+      <section className="bg-white/[0.02] py-8 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Problem</span>
@@ -176,7 +176,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.02]">
+      <section className="py-24 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
             Have the Right Skill for a Team?

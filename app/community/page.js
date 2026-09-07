@@ -125,7 +125,7 @@ export default function CommunityPage() {
 
 
       {/* Starter Circle Highlight */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-6 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
@@ -182,7 +182,7 @@ export default function CommunityPage() {
       </section>
 
       {/* Disciplines Infographic Matrix */}
-      <section className="py-28 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-28 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="mb-12">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
             Disciplines
@@ -199,7 +199,7 @@ export default function CommunityPage() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-6 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-16">
             <div>
@@ -241,7 +241,7 @@ export default function CommunityPage() {
       </section>
 
       {/* Stewardship CTA */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.02]">
+      <section className="py-24 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
             Participation, Not Hierarchy

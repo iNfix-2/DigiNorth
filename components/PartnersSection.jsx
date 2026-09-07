@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function PartnersSection() {
   return (
-    <section id="partners" className="py-24 bg-black border-t border-white/10 font-space">
+    <section id="partners" className="py-24 bg-black font-space">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
           Powered By Industry Leaders

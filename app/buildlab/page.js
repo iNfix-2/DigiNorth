@@ -50,7 +50,7 @@ export default function BuildLabPage() {
       </section>
 
       {/* Standards Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-6">
+      <section className="bg-white/[0.02] py-8 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Problem</span>
@@ -104,7 +104,7 @@ export default function BuildLabPage() {
       </section>
 
       {/* Operating Standard */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-6 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block font-semibold">
@@ -153,7 +153,7 @@ export default function BuildLabPage() {
       </section>
 
       {/* Pioneer Cohort Info */}
-      <section className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-28 px-6 max-w-7xl mx-auto">
         <div className="max-w-3xl bg-black border border-white/10 rounded-3xl p-8 sm:p-10 shadow-xl">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-mono text-[#38bdf8] uppercase font-bold">BuildLab Pioneer Cohort</span>

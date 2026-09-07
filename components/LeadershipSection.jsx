@@ -73,7 +73,7 @@ export default function LeadershipSection() {
   ];
 
   return (
-    <section id="leadership" className="py-24 sm:py-28 bg-black relative border-t border-white/10 font-space">
+    <section id="leadership" className="py-24 sm:py-28 bg-black relative font-space">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Executive Direction (The people helping shape DigiNorth's direction) */}

@@ -264,7 +264,7 @@ export default function SingleInsightPage() {
         </div>
 
         {/* GovCIO-style "RELATED CONTENT" 4-Column Grid */}
-        <section className="mt-20 pt-12 border-t border-white/10">
+        <section className="mt-20 pt-12">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <span className="px-2.5 py-1 rounded bg-[#38bdf8] text-black text-xs font-mono font-bold uppercase tracking-wider">

@@ -7,7 +7,7 @@ export default function JoinSection() {
   return (
     <section
       id="join-community"
-      className="py-24 sm:py-32 bg-black relative overflow-hidden scroll-mt-10 border-t border-white/10 font-space"
+      className="py-24 sm:py-32 bg-black relative overflow-hidden scroll-mt-10 font-space"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-14">

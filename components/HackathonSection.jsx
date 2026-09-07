@@ -34,7 +34,7 @@ export default function HackathonSection() {
   ];
 
   return (
-    <section id="hackathon" className="py-28 bg-black relative overflow-hidden border-t border-white/10">
+    <section id="hackathon" className="py-28 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column - Content */}

@@ -48,7 +48,7 @@ export default function AcademyPage() {
       </section>
 
       {/* Learning Principles Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-6">
+      <section className="bg-white/[0.02] py-8 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1">Foundation</span>
@@ -102,7 +102,7 @@ export default function AcademyPage() {
       </section>
 
       {/* Learning Method Highlight */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-6 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 bg-black border border-white/15 rounded-3xl p-8 sm:p-10 shadow-2xl">
             <span className="text-[10px] font-mono uppercase text-[#38bdf8] tracking-widest block mb-4">ACADEMY METHOD</span>
@@ -149,7 +149,7 @@ export default function AcademyPage() {
       </section>
 
       {/* Cohorts */}
-      <section className="py-28 px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-28 px-6 max-w-7xl mx-auto">
         <div className="mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
             Programmes and Cohorts
@@ -188,7 +188,7 @@ export default function AcademyPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 border-t border-white/10 bg-white/[0.02]">
+      <section className="py-24 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-3 font-semibold">
             Not Ready for a Full Cohort?

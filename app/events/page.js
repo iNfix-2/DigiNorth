@@ -146,7 +146,7 @@ export default function EventsPage() {
       </section>
 
       {/* Event Standards Band */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-8 px-4 sm:px-6">
+      <section className="bg-white/[0.02] py-8 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
             <span className="text-xs font-mono text-[#38bdf8] uppercase block mb-1 font-bold">01 · Date</span>
@@ -254,7 +254,7 @@ export default function EventsPage() {
       </section>
 
       {/* Weekly Cadence & Community Build Sessions */}
-      <section className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="mb-12">
           <span className="text-xs font-mono uppercase tracking-widest text-[#38bdf8] block mb-2 font-semibold">
             Weekly Rhythm
@@ -295,7 +295,7 @@ export default function EventsPage() {
       </section>
 
       {/* Final Hackathon Spotlight Banner */}
-      <section className="py-24 px-4 sm:px-6 border-t border-white/10 bg-white/[0.01]">
+      <section className="py-24 px-4 sm:px-6 bg-white/[0.01]">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0052FF]/20 border border-[#0052FF]/40 text-xs font-mono uppercase tracking-widest text-[#38bdf8]">
             <Trophy className="w-3.5 h-3.5" />

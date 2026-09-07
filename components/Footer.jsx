@@ -49,7 +49,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full overflow-hidden bg-black text-white pt-24 pb-16 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+    <footer className="relative w-full overflow-hidden bg-black text-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       
       {/* Massive Background DIGINORTH Typography Watermark */}
       <div className="pointer-events-none absolute inset-x-0 top-4 sm:top-8 flex items-center justify-center select-none overflow-hidden z-0">
